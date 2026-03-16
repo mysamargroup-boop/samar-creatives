@@ -11,9 +11,9 @@ export function AboutMe() {
   ];
 
   return (
-    <section id="about" className="py-24 md:py-40 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 max-w-7xl mx-auto">
+    <section id="about" className="py-24 md:py-40 px-6 md:px-12 grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 md:gap-20 max-w-7xl mx-auto bg-background">
       <div>
-        <span className="text-[11px] uppercase tracking-[0.3em] text-[#c8fa64] block mb-10 fade-up">About Me</span>
+        <span className="text-[11px] uppercase tracking-[0.3em] text-foreground/40 block mb-10 fade-up">About Me</span>
         <h2 className="font-display text-[clamp(2rem,8vw,5rem)] font-extrabold leading-[1.05] tracking-tighter uppercase text-left">
           <div className="reveal-line"><span>Developer</span></div>
           <div className="reveal-line"><span>based in</span></div>
@@ -22,21 +22,21 @@ export function AboutMe() {
       </div>
 
       <div className="lg:pt-16 space-y-8 text-left">
-        <p className="fade-up text-[16px] md:text-[19px] leading-relaxed text-white/45">
-          Hi, I&apos;m <strong className="text-white font-medium">Samar</strong> — a self-driven creative developer from <strong className="text-white font-medium">Sagar, Madhya Pradesh</strong>, crafting immersive web experiences that blend technical precision with artistic vision.
+        <p className="fade-up text-[16px] md:text-[19px] leading-relaxed text-foreground/60">
+          Hi, I&apos;m <strong className="text-foreground font-medium">Samar</strong> — a self-driven creative developer from <strong className="text-foreground font-medium">Sagar, Madhya Pradesh</strong>, crafting immersive web experiences that blend technical precision with artistic vision.
         </p>
-        <p className="fade-up text-[16px] md:text-[19px] leading-relaxed text-white/45">
-          I specialize in building fast, accessible, and visually striking websites — from slick marketing pages to complex full-stack applications. My work lives at the intersection of <strong className="text-white font-medium">design and engineering</strong>.
+        <p className="fade-up text-[16px] md:text-[19px] leading-relaxed text-foreground/60">
+          I specialize in building fast, accessible, and visually striking websites — from slick marketing pages to complex full-stack applications. My work lives at the intersection of <strong className="text-foreground font-medium">design and engineering</strong>.
         </p>
 
-        <div className="grid grid-cols-2 gap-8 pt-12 border-t border-white/10">
+        <div className="grid grid-cols-2 gap-8 pt-12 border-t border-border">
           {stats.map((stat, i) => (
             <div key={i} className="fade-up">
               <div className="font-display text-[32px] md:text-[64px] font-extrabold leading-none tracking-tighter flex items-start">
                 {stat.num}
-                {stat.num !== "∞" && <span className="text-[0.5em] text-[#c8fa64] ml-1">+</span>}
+                {stat.num !== "∞" && <span className="text-[0.5em] text-accent ml-1">+</span>}
               </div>
-              <div className="text-[10px] md:text-[13px] uppercase tracking-widest text-white/30 mt-2">
+              <div className="text-[10px] md:text-[13px] uppercase tracking-widest text-foreground/30 mt-2">
                 {stat.label}
               </div>
             </div>

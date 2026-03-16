@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 0 0% 3%;     /* #080808 */
-    --foreground: 40 10% 93%;   /* #f0ede8 */
-    --card: 0 0% 5%;
-    --card-foreground: 40 10% 93%;
-    --popover: 0 0% 5%;
-    --popover-foreground: 40 10% 93%;
-    --primary: 78 93% 69%;     /* #c8fa64 - Lime */
-    --primary-foreground: 0 0% 3%;
-    --secondary: 0 0% 9%;      /* #171717 */
-    --secondary-foreground: 40 10% 93%;
-    --muted: 0 0% 15%;
-    --muted-foreground: 40 10% 93% / 0.45;
-    --accent: 78 93% 69%;
-    --accent-foreground: 0 0% 3%;
+    --background: 36 33% 94%;    /* #f5f0e8 - Ivory/Cream */
+    --foreground: 60 5% 4%;      /* #0a0a09 - Ink/Black */
+    --card: 36 33% 96%;
+    --card-foreground: 60 5% 4%;
+    --popover: 36 33% 96%;
+    --popover-foreground: 60 5% 4%;
+    --primary: 60 5% 4%;        /* Black primary on light */
+    --primary-foreground: 36 33% 94%;
+    --secondary: 36 10% 90%;
+    --secondary-foreground: 60 5% 4%;
+    --muted: 36 10% 85%;
+    --muted-foreground: 60 5% 4% / 0.55;
+    --accent: 78 93% 69%;       /* Keeping the Lime accent #c8fa64 */
+    --accent-foreground: 0 0% 0%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 100% / 0.07;
-    --input: 0 0% 100% / 0.07;
-    --ring: 78 93% 69%;
+    --border: 60 5% 4% / 0.12;
+    --input: 60 5% 4% / 0.12;
+    --ring: 60 5% 4%;
     --radius: 0rem;
   }
 }
@@ -35,7 +35,7 @@
     scroll-behavior: auto !important;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-accent-foreground;
     font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
   }
@@ -45,57 +45,38 @@
   font-family: 'Syne', sans-serif;
 }
 
-/* Custom Cursor Styles from index(1).html */
+/* Custom Cursor Styles */
 #cursor {
-  position: fixed;
-  width: 12px; height: 12px;
-  background: #c8fa64;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
+  @apply fixed w-[12px] h-[12px] rounded-full pointer-events-none z-[9999] bg-foreground;
   transform: translate(-50%, -50%);
   transition: width 0.3s cubic-bezier(0.76, 0, 0.24, 1), height 0.3s cubic-bezier(0.76, 0, 0.24, 1), background 0.3s;
-  mix-blend-mode: difference;
+  mix-blend-mode: multiply;
 }
 
 #cursor-ring {
-  position: fixed;
-  width: 40px; height: 40px;
-  border: 1.5px solid rgba(200,250,100,0.5);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
+  @apply fixed w-[40px] h-[40px] border border-foreground/30 rounded-full pointer-events-none z-[9998];
   transform: translate(-50%, -50%);
 }
 
 /* Reveal line utility */
 .reveal-line {
-  overflow: hidden;
-  display: block;
+  @apply overflow-hidden block;
 }
 .reveal-line span {
-  display: block;
-  transform: translateY(100%);
+  @apply block translate-y-full;
 }
 
 /* Background noise utility */
 .bg-noise {
-  position: absolute;
-  inset: 0;
-  opacity: 0.03;
+  @apply absolute inset-0 opacity-[0.04] pointer-events-none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-size: 200px;
-  pointer-events: none;
 }
 
 /* Hero Glow */
 .hero-glow {
-  position: absolute;
-  width: 600px; height: 600px;
-  background: radial-gradient(circle, rgba(200,250,100,0.08) 0%, transparent 70%);
-  border-radius: 50%;
-  top: 10%; right: -100px;
-  pointer-events: none;
+  @apply absolute w-[600px] h-[600px] rounded-full pointer-events-none top-[10%] -right-[100px];
+  background: radial-gradient(circle, rgba(0,0,0,0.03) 0%, transparent 70%);
   animation: glow-pulse 6s ease-in-out infinite alternate;
 }
 
@@ -125,16 +106,10 @@ html.lenis {
   overscroll-behavior: contain;
 }
 .lenis.lenis-stopped {
-  overflow: hidden;
+  @apply overflow-hidden;
 }
 
 /* Custom Scroll Progress */
 #scroll-progress {
-  position: fixed;
-  top: 0; left: 0;
-  width: 0%;
-  height: 2px;
-  background: #c8fa64;
-  z-index: 9997;
-  transform-origin: left;
+  @apply fixed top-0 left-0 w-0 h-[2px] bg-foreground z-[9997] origin-left;
 }

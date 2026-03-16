@@ -77,10 +77,10 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
     // Hover Scaling
     const handleMouseEnter = () => {
-      gsap.to(cursorRef.current, { width: 50, height: 50, backgroundColor: "rgba(200,250,100,0.15)", duration: 0.3 });
+      gsap.to(cursorRef.current, { width: 50, height: 50, opacity: 0.2, duration: 0.3 });
     };
     const handleMouseLeave = () => {
-      gsap.to(cursorRef.current, { width: 12, height: 12, backgroundColor: "#c8fa64", duration: 0.3 });
+      gsap.to(cursorRef.current, { width: 12, height: 12, opacity: 1, duration: 0.3 });
     };
 
     const interactives = document.querySelectorAll("a, button, .project-item");
@@ -105,13 +105,13 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         scrollTrigger: { scrub: 0.3, start: 'top top', end: 'bottom bottom' }
       });
 
-      // Reveal Lines (About/Works headings)
+      // Reveal Lines
       document.querySelectorAll('.reveal-line span').forEach(span => {
         gsap.to(span, {
           y: 0, duration: 1.1, ease: 'power4.out',
           scrollTrigger: { 
             trigger: span.parentElement, 
-            start: 'top 90%', // Earlier start for mobile visibility
+            start: 'top 90%', 
             toggleActions: 'play none none none' 
           }
         });
@@ -126,7 +126,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
           ease: 'power3.out',
           scrollTrigger: { 
             trigger: el, 
-            start: 'top 92%', // Earlier start for mobile visibility
+            start: 'top 92%', 
             toggleActions: 'play none none none' 
           }
         });
@@ -149,18 +149,17 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       {/* Preloader */}
       <div 
         ref={preloaderRef}
-        className="fixed inset-0 bg-[#080808] z-[9000] flex flex-col items-center justify-center overflow-hidden"
+        className="fixed inset-0 bg-foreground z-[9000] flex flex-col items-center justify-center overflow-hidden"
       >
-        <div className="absolute top-0 w-[1px] h-0 bg-[#c8fa64]" />
-        <div className="font-display text-[12vw] font-extrabold text-[#f0ede8] leading-none tracking-tighter">
+        <div className="font-display text-[12vw] font-extrabold text-background leading-none tracking-tighter">
           {percent.toString().padStart(2, '0')}
         </div>
-        <div className="text-[11px] tracking-[0.3em] uppercase text-muted-foreground mt-3 font-medium">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-background/50 mt-3 font-medium">
           Loading Portfolio
         </div>
         <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[min(400px,80vw)]">
-          <div className="w-full h-[1px] bg-white/10">
-            <div className="h-full bg-[#c8fa64] transition-all" style={{ width: `${percent}%` }} />
+          <div className="w-full h-[1px] bg-background/10">
+            <div className="h-full bg-background transition-all" style={{ width: `${percent}%` }} />
           </div>
         </div>
       </div>
