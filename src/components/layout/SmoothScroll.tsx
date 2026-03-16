@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -12,16 +13,14 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const cursorFollowerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Exact Lenis Initialization from HTML file
+    // Lenis Initialization matching the original portfolio feel
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    // Link Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
-    // Sync GSAP ticker with Lenis
     const tickerUpdate = (time: number) => {
       lenis.raf(time * 1000);
     };
@@ -41,7 +40,6 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
           ease: "none"
         });
         
-        // The "f" follower is slower
         gsap.to(follower, {
           x: e.clientX,
           y: e.clientY,
@@ -56,6 +54,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
           width: 60,
           height: 60,
           duration: 0.3,
+          backgroundColor: "rgba(245, 240, 232, 0.1)",
         });
       };
 
@@ -64,6 +63,30 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
           width: 40,
           height: 40,
           duration: 0.3,
+          backgroundColor: "transparent",
+        });
+      };
+
+      // Detect dark sections to change cursor color
+      const handleDarkSectionEnter = () => {
+        gsap.to(cursor, {
+          backgroundColor: "hsl(var(--background))", // Ivory color
+          duration: 0.3
+        });
+        gsap.to(follower, {
+          borderColor: "hsl(var(--background))",
+          duration: 0.3
+        });
+      };
+
+      const handleDarkSectionLeave = () => {
+        gsap.to(cursor, {
+          backgroundColor: "hsl(var(--foreground))", // Ink color
+          duration: 0.3
+        });
+        gsap.to(follower, {
+          borderColor: "rgba(10, 10, 9, 0.3)",
+          duration: 0.3
         });
       };
 
@@ -71,6 +94,12 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       interactiveElements.forEach((el) => {
         el.addEventListener("mouseenter", handleHover);
         el.addEventListener("mouseleave", handleUnhover);
+      });
+
+      const darkSections = document.querySelectorAll(".dark-section");
+      darkSections.forEach((section) => {
+        section.addEventListener("mouseenter", handleDarkSectionEnter);
+        section.addEventListener("mouseleave", handleDarkSectionLeave);
       });
 
       return () => {
@@ -85,7 +114,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     <>
       <div 
         ref={cursorRef} 
-        className="fixed top-0 left-0 w-2 h-2 bg-foreground rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden md:block mix-blend-difference"
+        className="fixed top-0 left-0 w-2 h-2 bg-foreground rounded-full pointer-events-none z-[9999] -translate-x-1/2 -translate-y-1/2 hidden md:block"
+        style={{ mixBlendMode: 'normal' }}
       />
       <div 
         ref={cursorFollowerRef} 

@@ -1,3 +1,4 @@
+
 "use client";
 
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -52,11 +53,10 @@ export function ProjectsGrid() {
     const track = trackRef.current;
     const section = sectionRef.current;
 
-    // Calculate the total horizontal scroll distance
     const getScrollAmount = () => {
       const trackWidth = track.scrollWidth;
       const windowWidth = window.innerWidth;
-      return -(trackWidth - windowWidth + 64); // 64 is the total padding (px-8)
+      return -(trackWidth - windowWidth + 64);
     };
 
     const scrollTween = gsap.to(track, {
@@ -75,12 +75,11 @@ export function ProjectsGrid() {
 
     return () => {
       scrollTween.kill();
-      ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
 
   return (
-    <section id="works" ref={sectionRef} className="bg-primary text-primary-foreground overflow-hidden h-screen flex flex-col">
+    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden h-screen flex flex-col">
       <div className="px-8 pt-24 pb-12 flex items-end justify-between shrink-0">
         <h2 className="font-display text-6xl sm:text-8xl leading-none">
           SELECTED<br />WORKS
@@ -101,7 +100,7 @@ export function ProjectsGrid() {
                       <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
                       <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                     </div>
-                    <div className="p-4 flex flex-col items-center justify-center h-full">
+                    <div className="p-4 flex flex-col items-center justify-center h-full relative">
                        <Image 
                         src={projectImg?.imageUrl || `https://picsum.photos/seed/${project.id}/800/600`}
                         alt={project.title}
