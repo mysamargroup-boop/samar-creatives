@@ -35,6 +35,7 @@ export function Process() {
 
   useEffect(() => {
     if (diagonalRef.current) {
+      // Linear scroll-triggered motion
       gsap.to(diagonalRef.current, {
         x: "-10%",
         ease: "none",
@@ -45,15 +46,32 @@ export function Process() {
           scrub: 1,
         }
       });
+
+      // Random-feeling floating flow (Up and Down)
+      gsap.to(diagonalRef.current, {
+        y: "+=30",
+        duration: 4,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
+      
+      gsap.to(diagonalRef.current, {
+        rotation: "-=2",
+        duration: 6,
+        ease: "sine.inOut",
+        repeat: -1,
+        yoyo: true,
+      });
     }
   }, []);
 
   return (
     <section id="process" className="relative py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      {/* Diagonal Background Text - Increased opacity for visibility */}
+      {/* Floating Diagonal Background Text */}
       <div 
         ref={diagonalRef}
-        className="absolute top-1/2 left-[-25%] w-[150%] font-display text-[10vw] font-extrabold text-foreground/[0.03] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[12deg] origin-left"
+        className="absolute top-1/2 left-[-25%] w-[150%] font-display text-[10vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[12deg] origin-left"
       >
         STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN • BUILD • LAUNCH
       </div>
