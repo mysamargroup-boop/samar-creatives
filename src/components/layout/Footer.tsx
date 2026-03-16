@@ -1,26 +1,19 @@
 export function Footer() {
   return (
-    <footer className="bg-primary text-primary-foreground py-16 px-8 flex flex-col md:flex-row items-center justify-between gap-10 border-t border-primary-foreground/5">
-      <div className="flex flex-col gap-4 items-center md:items-start">
-        <div className="font-display text-3xl tracking-widest">SAMAR.</div>
-        <div className="flex items-center gap-3">
-          <div className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-          <span className="text-[10px] uppercase tracking-[0.2em] text-accent font-bold">Currently Available for new projects</span>
-        </div>
+    <footer className="py-12 px-8 md:px-12 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-10">
+      <div className="font-display text-lg font-extrabold tracking-tighter text-[#f0ede8]">
+        Samar.
       </div>
       
       <div className="flex flex-col items-center gap-2">
-        <div className="text-[10px] uppercase tracking-[0.3em] opacity-30">
-          © {new Date().getFullYear()} Samar. All rights reserved.
-        </div>
-        <div className="text-[10px] uppercase tracking-[0.3em] opacity-20 italic">
-          Built with precision and passion.
+        <div className="text-[11px] md:text-[12px] uppercase tracking-[0.3em] text-[#f0ede8]/30">
+          © {new Date().getFullYear()} <span className="text-[#c8fa64]">Samar</span>. All rights reserved.
         </div>
       </div>
       
-      <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest opacity-40">
+      <div className="flex items-center gap-4 text-[11px] md:text-[12px] uppercase tracking-widest text-[#f0ede8]/30">
         <span className="flex items-center gap-2">
-          <span className="text-accent">📍</span> Sagar, Madhya Pradesh, India
+          📍 Sagar, Madhya Pradesh, IN
         </span>
       </div>
     </footer>

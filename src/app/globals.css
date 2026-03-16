@@ -4,25 +4,25 @@
 
 @layer base {
   :root {
-    --background: 40 30% 94%; /* Ivory #f5f0e8 */
-    --foreground: 60 5% 4%;   /* Ink #0a0a09 */
-    --card: 40 30% 96%;
-    --card-foreground: 60 5% 4%;
-    --popover: 40 30% 96%;
-    --popover-foreground: 60 5% 4%;
-    --primary: 60 5% 4%;
-    --primary-foreground: 40 30% 94%;
-    --secondary: 60 5% 10%;   /* Mid #1c1c1a */
-    --secondary-foreground: 40 30% 94%;
-    --muted: 40 10% 88%;
-    --muted-foreground: 60 5% 40%;
-    --accent: 10 80% 54%;      /* Accent #e84b2c */
-    --accent-foreground: 40 30% 98%;
+    --background: 0 0% 3%;     /* #080808 */
+    --foreground: 40 10% 93%;   /* #f0ede8 */
+    --card: 0 0% 5%;
+    --card-foreground: 40 10% 93%;
+    --popover: 0 0% 5%;
+    --popover-foreground: 40 10% 93%;
+    --primary: 78 93% 69%;     /* #c8fa64 - Lime */
+    --primary-foreground: 0 0% 3%;
+    --secondary: 0 0% 9%;      /* #171717 */
+    --secondary-foreground: 40 10% 93%;
+    --muted: 0 0% 15%;
+    --muted-foreground: 40 10% 93% / 0.45;
+    --accent: 78 93% 69%;
+    --accent-foreground: 0 0% 3%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 60 5% 4% / 0.12;
-    --input: 60 5% 4% / 0.12;
-    --ring: 60 5% 4%;
+    --border: 0 0% 100% / 0.07;
+    --input: 0 0% 100% / 0.07;
+    --ring: 78 93% 69%;
     --radius: 0rem;
   }
 }
@@ -35,50 +35,106 @@
     scroll-behavior: auto !important;
   }
   body {
-    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-white;
-    font-variant-ligatures: no-common-ligatures;
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-primary-foreground;
+    font-family: 'DM Sans', sans-serif;
     overflow-x: hidden;
   }
-  h1, h2, h3 {
-    @apply font-display uppercase tracking-tight;
-  }
+}
+
+.font-display {
+  font-family: 'Syne', sans-serif;
+}
+
+/* Custom Cursor Styles from index(1).html */
+#cursor {
+  position: fixed;
+  width: 12px; height: 12px;
+  background: #c8fa64;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: width 0.3s cubic-bezier(0.76, 0, 0.24, 1), height 0.3s cubic-bezier(0.76, 0, 0.24, 1), background 0.3s;
+  mix-blend-mode: difference;
+}
+
+#cursor-ring {
+  position: fixed;
+  width: 40px; height: 40px;
+  border: 1.5px solid rgba(200,250,100,0.5);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+}
+
+/* Reveal line utility */
+.reveal-line {
+  overflow: hidden;
+  display: block;
+}
+.reveal-line span {
+  display: block;
+  transform: translateY(100%);
+}
+
+/* Background noise utility */
+.bg-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px;
+  pointer-events: none;
+}
+
+/* Hero Glow */
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(200,250,100,0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  top: 10%; right: -100px;
+  pointer-events: none;
+  animation: glow-pulse 6s ease-in-out infinite alternate;
+}
+
+@keyframes glow-pulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to { opacity: 1; transform: scale(1.15); }
+}
+
+/* Marquee */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  animation: marquee 20s linear infinite;
 }
 
 /* Lenis Recommended Styles */
 html.lenis {
   height: auto;
 }
-
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
 }
-
 .lenis.lenis-smooth [data-lenis-prevent] {
   overscroll-behavior: contain;
 }
-
 .lenis.lenis-stopped {
   overflow: hidden;
 }
 
-.lenis.lenis-scrolling iframe {
-  pointer-events: none;
-}
-
-.font-serif-italic {
-  font-family: 'Instrument Serif', serif;
-  font-style: italic;
-}
-
-.text-stroke {
-  -webkit-text-stroke: 1px currentColor;
-  color: transparent;
-}
-
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-.no-scrollbar {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+/* Custom Scroll Progress */
+#scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%;
+  height: 2px;
+  background: #c8fa64;
+  z-index: 9997;
+  transform-origin: left;
 }

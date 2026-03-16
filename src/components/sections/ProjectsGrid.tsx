@@ -1,142 +1,102 @@
 "use client";
 
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-import Image from "next/image";
+import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
-import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const projects = [
-  {
-    id: "01",
-    title: "ShopVista",
-    description: "Full-stack e-commerce platform with real-time inventory, Stripe checkout, and an admin dashboard.",
-    tags: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "project-1",
-    color: "linear-gradient(135deg,#12200f,#1e3318)"
-  },
-  {
-    id: "02",
-    title: "Notion Studio",
-    description: "Creative agency site with GSAP page transitions, horizontal scroll, and a custom cursor experience.",
-    tags: ["Next.js", "GSAP", "Tailwind"],
-    image: "project-2",
-    color: "linear-gradient(135deg,#1a0f0f,#2e1a1a)"
-  },
-  {
-    id: "03",
-    title: "AnalyticsPro",
-    description: "SaaS dashboard with D3.js charts, multi-tenant auth, and real-time WebSocket data feeds.",
-    tags: ["React", "TypeScript", "D3.js"],
-    image: "project-3",
-    color: "linear-gradient(135deg,#0c1825,#112236)"
-  },
-  {
-    id: "04",
-    title: "Zaika Delights",
-    description: "Restaurant brand website with menu animations, table booking system, and SEO optimization.",
-    tags: ["HTML/CSS", "GSAP", "WordPress"],
-    image: "project-4",
-    color: "linear-gradient(135deg,#1a1600,#2e2800)"
-  }
+  { id: "01", name: "ShopVista", cat: "E-Commerce", tags: ["React", "Node.js", "MongoDB", "Stripe"], color: "#c8fa64" },
+  { id: "02", name: "Notion Studio", cat: "Creative Agency", tags: ["Next.js", "GSAP", "Tailwind"], color: "#ff5f3f" },
+  { id: "03", name: "AnalyticsPro", cat: "SaaS Dashboard", tags: ["React", "TypeScript", "D3.js"], color: "#6af" },
+  { id: "04", name: "Zaika Delights", cat: "Restaurant Site", tags: ["HTML/CSS", "GSAP", "WordPress"], color: "#c8fa64" },
+  { id: "05", name: "PropNest", cat: "Real Estate", tags: ["Next.js", "Mapbox", "PostgreSQL"], color: "#ff5f3f" }
 ];
 
 export function ProjectsGrid() {
-  const sectionRef = useRef<HTMLElement>(null);
-  const trackRef = useRef<HTMLDivElement>(null);
+  const [hoveredProject, setHoveredProject] = useState<typeof projects[0] | null>(null);
+  const previewRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!trackRef.current || !sectionRef.current) return;
-
-    const track = trackRef.current;
-    const section = sectionRef.current;
-
-    const getScrollAmount = () => {
-      const trackWidth = track.scrollWidth;
-      const windowWidth = window.innerWidth;
-      // Calculate total width to scroll, maintaining the 64px offset from the HTML original
-      return -(trackWidth - windowWidth + 64);
+    const handleMouseMove = (e: MouseEvent) => {
+      if (previewRef.current) {
+        gsap.to(previewRef.current, {
+          left: e.clientX + 24,
+          top: e.clientY - 60,
+          duration: 0.4,
+          ease: 'power3.out'
+        });
+      }
     };
-
-    // Initialize ScrollTrigger pinning for all screen sizes
-    const scrollTween = gsap.to(track, {
-      x: getScrollAmount,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: () => `+=${track.scrollWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    return () => {
-      scrollTween.kill();
-      ScrollTrigger.getAll().forEach(st => st.kill());
-    };
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, []);
 
   return (
-    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden h-screen flex flex-col">
-      <div className="px-8 pt-24 pb-12 flex items-end justify-between shrink-0">
-        <h2 className="font-display text-6xl sm:text-8xl leading-none">
-          SELECTED<br />WORKS
-        </h2>
-        <span className="text-[11px] uppercase tracking-widest opacity-40">{projects.length} projects</span>
+    <section id="works" className="py-24 md:py-40 bg-[#080808]">
+      <div className="px-8 md:px-12 flex flex-col md:flex-row items-end justify-between mb-20 gap-8">
+        <div>
+          <span className="text-[11px] uppercase tracking-[0.3em] text-[#c8fa64] block mb-4 fade-up">Selected Works</span>
+          <h2 className="font-display text-[12vw] sm:text-[6vw] font-extrabold leading-none tracking-tighter uppercase fade-up">Projects</h2>
+        </div>
+        <div className="font-display text-[10vw] font-extrabold text-white/5 leading-none tracking-tighter fade-up">
+          05
+        </div>
       </div>
 
-      <div className="flex-grow flex items-center px-8 overflow-hidden">
-        <div ref={trackRef} className="flex gap-8 will-change-transform py-10">
-          {projects.map((project) => {
-            const projectImg = PlaceHolderImages.find(img => img.id === project.image);
-            return (
-              <div key={project.id} className="min-w-[85vw] sm:min-w-[480px] group border border-primary-foreground/10 p-1 flex flex-col bg-primary-foreground/[0.03] hover:border-primary-foreground/30 transition-all duration-500">
-                <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center" style={{ background: project.color }}>
-                  <div className="absolute inset-4 sm:inset-6 bg-[#1a1a18] rounded-t-lg shadow-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-700">
-                    <div className="h-6 bg-[#252523] flex items-center px-3 gap-1 border-b border-white/5">
-                      <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
-                      <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
-                    </div>
-                    <div className="p-4 flex flex-col items-center justify-center h-full relative">
-                       <Image 
-                        src={projectImg?.imageUrl || `https://picsum.photos/seed/${project.id}/800/600`}
-                        alt={project.title}
-                        fill
-                        className="object-cover opacity-50 group-hover:opacity-80 transition-opacity"
-                        data-ai-hint="web interface"
-                      />
-                      <span className="font-display text-lg opacity-40 relative z-10 uppercase tracking-widest">{project.title}</span>
-                    </div>
-                  </div>
-                </div>
+      <div className="px-8 md:px-12 max-w-7xl mx-auto space-y-0">
+        {projects.map((project) => (
+          <Link 
+            key={project.id}
+            href="#"
+            className="project-item group relative grid grid-cols-[50px_1fr_auto] md:grid-cols-[80px_1fr_auto] items-center gap-6 md:gap-10 py-10 md:py-12 border-b border-white/10 hover:text-white transition-colors overflow-hidden"
+            onMouseEnter={() => setHoveredProject(project)}
+            onMouseLeave={() => setHoveredProject(null)}
+          >
+            {/* Background Hover Slide */}
+            <div className="absolute inset-0 bg-[#c8fa64]/[0.04] translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
 
-                <div className="p-6 flex flex-col gap-4">
-                  <div className="flex justify-between items-start">
-                    <div>
-                      <h3 className="font-display text-3xl mb-2">{project.title}</h3>
-                      <p className="text-xs text-primary-foreground/40 leading-relaxed mb-4 max-w-xs">{project.description}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {project.tags.map(tag => (
-                          <span key={tag} className="text-[9px] uppercase tracking-widest px-2 py-1 border border-primary-foreground/10 rounded-full opacity-60">
-                            {tag}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                    <span className="font-display text-xs opacity-20">{project.id}</span>
-                  </div>
-                  <Link href="#" className="text-[10px] uppercase tracking-widest text-accent hover:translate-x-2 transition-transform inline-flex items-center gap-2 mt-2">
-                    View Project <span className="text-sm">→</span>
-                  </Link>
-                </div>
+            <span className="font-display text-[12px] md:text-[13px] font-bold text-[#f0ede8]/45 tracking-widest relative z-10">
+              {project.id}
+            </span>
+
+            <div className="relative z-10">
+              <h3 className="font-display text-[24px] md:text-[40px] font-bold leading-none tracking-tight group-hover:text-[#c8fa64] transition-colors mb-2">
+                {project.name}
+              </h3>
+              <div className="flex gap-2 flex-wrap">
+                {project.tags.map(tag => (
+                  <span key={tag} className="text-[9px] md:text-[10px] uppercase tracking-widest text-white/40 border border-white/10 px-2 py-1 rounded-full group-hover:border-[#c8fa64]/30 transition-colors">
+                    {tag}
+                  </span>
+                ))}
               </div>
-            );
-          })}
+            </div>
+
+            <div className="project-arrow w-10 h-10 md:w-14 md:h-14 border border-white/10 rounded-full flex items-center justify-center group-hover:bg-[#c8fa64] group-hover:border-[#c8fa64] group-hover:rotate-45 transition-all duration-500 relative z-10">
+              <svg className="w-4 h-4 md:w-5 md:h-5 text-white/40 group-hover:text-black transition-colors" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+                <path d="M7 17L17 7M17 7H7M17 7v10" strokeLinecap="round" strokeLinejoin="round" />
+              </svg>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      {/* Floating Preview */}
+      <div 
+        ref={previewRef}
+        className={`fixed w-[280px] h-[180px] md:w-[320px] md:h-[220px] z-[200] pointer-events-none rounded-xl overflow-hidden shadow-2xl transition-all duration-300 transform ${hoveredProject ? 'opacity-100 scale-100 rotate-[-2deg]' : 'opacity-0 scale-90 rotate-[-4deg]'}`}
+        style={{ 
+          background: hoveredProject ? `linear-gradient(135deg, ${hoveredProject.color}20, ${hoveredProject.color}08)` : 'transparent',
+          border: `1px solid ${hoveredProject ? hoveredProject.color : 'transparent'}40`
+        }}
+      >
+        <div className="w-full h-full flex flex-col items-center justify-center p-6 text-center">
+          <span className="font-display text-[11px] uppercase tracking-[0.2em] text-white/40 mb-2">
+            {hoveredProject?.cat}
+          </span>
+          <span className="font-display text-[20px] font-bold tracking-tight" style={{ color: hoveredProject?.color }}>
+            {hoveredProject?.name}
+          </span>
         </div>
       </div>
     </section>
