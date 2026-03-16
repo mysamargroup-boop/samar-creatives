@@ -1,4 +1,3 @@
-
 "use client";
 
 import { PlaceHolderImages } from "@/lib/placeholder-images";
@@ -59,27 +58,33 @@ export function ProjectsGrid() {
       return -(trackWidth - windowWidth + 64);
     };
 
-    const scrollTween = gsap.to(track, {
-      x: getScrollAmount,
-      ease: "none",
-      scrollTrigger: {
-        trigger: section,
-        start: "top top",
-        end: () => `+=${track.scrollWidth}`,
-        scrub: 1,
-        pin: true,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
+    const mm = gsap.matchMedia();
+
+    mm.add("(min-width: 768px)", () => {
+      const scrollTween = gsap.to(track, {
+        x: getScrollAmount,
+        ease: "none",
+        scrollTrigger: {
+          trigger: section,
+          start: "top top",
+          end: () => `+=${track.scrollWidth}`,
+          scrub: 1,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      return () => {
+        scrollTween.kill();
+      };
     });
 
-    return () => {
-      scrollTween.kill();
-    };
+    return () => mm.revert();
   }, []);
 
   return (
-    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden h-screen flex flex-col">
+    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden md:h-screen flex flex-col">
       <div className="px-8 pt-24 pb-12 flex items-end justify-between shrink-0">
         <h2 className="font-display text-6xl sm:text-8xl leading-none">
           SELECTED<br />WORKS
@@ -87,8 +92,8 @@ export function ProjectsGrid() {
         <span className="text-[11px] uppercase tracking-widest opacity-40">{projects.length} projects</span>
       </div>
 
-      <div className="flex-grow flex items-center px-8 overflow-hidden">
-        <div ref={trackRef} className="flex gap-8 will-change-transform">
+      <div className="flex-grow flex items-center px-8 overflow-x-auto md:overflow-hidden no-scrollbar">
+        <div ref={trackRef} className="flex gap-8 will-change-transform py-10 md:py-0">
           {projects.map((project) => {
             const projectImg = PlaceHolderImages.find(img => img.id === project.image);
             return (
@@ -107,7 +112,7 @@ export function ProjectsGrid() {
                         fill
                         className="object-cover opacity-50 group-hover:opacity-80 transition-opacity"
                       />
-                      <span className="font-display text-lg opacity-40 relative z-10">{project.title}</span>
+                      <span className="font-display text-lg opacity-40 relative z-10 uppercase tracking-widest">{project.title}</span>
                     </div>
                   </div>
                 </div>

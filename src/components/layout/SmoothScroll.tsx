@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -17,6 +16,8 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     const lenis = new Lenis({
       duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
+      wheelMultiplier: 1,
     });
 
     lenis.on('scroll', ScrollTrigger.update);
@@ -24,8 +25,14 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     const tickerUpdate = (time: number) => {
       lenis.raf(time * 1000);
     };
+    
     gsap.ticker.add(tickerUpdate);
     gsap.ticker.lagSmoothing(0);
+
+    // Refresh ScrollTrigger after a short delay to ensure layout is ready
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+    }, 500);
 
     // Custom Cursor Logic
     const cursor = cursorRef.current;
@@ -70,18 +77,18 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       // Detect dark sections to change cursor color
       const handleDarkSectionEnter = () => {
         gsap.to(cursor, {
-          backgroundColor: "hsl(var(--background))", // Ivory color
+          backgroundColor: "#f5f0e8", // Ivory
           duration: 0.3
         });
         gsap.to(follower, {
-          borderColor: "hsl(var(--background))",
+          borderColor: "#f5f0e8", // Ivory
           duration: 0.3
         });
       };
 
       const handleDarkSectionLeave = () => {
         gsap.to(cursor, {
-          backgroundColor: "hsl(var(--foreground))", // Ink color
+          backgroundColor: "#0a0a09", // Ink
           duration: 0.3
         });
         gsap.to(follower, {
@@ -106,6 +113,16 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         window.removeEventListener("mousemove", moveCursor);
         gsap.ticker.remove(tickerUpdate);
         lenis.destroy();
+        
+        interactiveElements.forEach((el) => {
+          el.removeEventListener("mouseenter", handleHover);
+          el.removeEventListener("mouseleave", handleUnhover);
+        });
+        
+        darkSections.forEach((section) => {
+          section.removeEventListener("mouseenter", handleDarkSectionEnter);
+          section.removeEventListener("mouseleave", handleDarkSectionLeave);
+        });
       };
     }
   }, []);
