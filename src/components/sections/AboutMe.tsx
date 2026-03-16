@@ -40,18 +40,17 @@ export function AboutMe() {
       {/* Parallax Background Element - Reduced size for visibility */}
       <div 
         ref={bgTextRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[20vw] font-extrabold text-foreground/[0.02] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[15vw] font-extrabold text-foreground/[0.015] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
       >
         SAMAR
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start text-left">
-        <div className="w-full">
+        <div className="w-full pr-4">
           <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-8 fade-up font-bold">
             About Me
           </span>
-          {/* Reduced font scale to prevent clipping */}
-          <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase w-full">
+          <h2 className="font-display text-[clamp(2rem,4vw,3rem)] font-extrabold leading-[1] tracking-tighter uppercase w-full">
             <div className="reveal-line w-full"><span>Developer</span></div>
             <div className="reveal-line w-full"><span>based in</span></div>
             <div className="reveal-line w-full"><span>Sagar, MP.</span></div>
