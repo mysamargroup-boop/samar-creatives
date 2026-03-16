@@ -9,27 +9,39 @@
     },
     {
       "id": "project-1",
-      "description": "Modern web application interface with clean typography.",
+      "description": "Modern AI chat interface.",
       "imageUrl": "https://picsum.photos/seed/pc-p1/800/600",
-      "imageHint": "web application interface"
+      "imageHint": "ai chat interface"
     },
     {
       "id": "project-2",
-      "description": "Mobile app dashboard showing data visualization charts.",
+      "description": "Furniture store landing page.",
       "imageUrl": "https://picsum.photos/seed/pc-p2/800/600",
-      "imageHint": "mobile dashboard app"
+      "imageHint": "furniture store design"
     },
     {
       "id": "project-3",
-      "description": "E-commerce platform with a focus on product photography.",
+      "description": "B2B business portal dashboard.",
       "imageUrl": "https://picsum.photos/seed/pc-p3/800/600",
-      "imageHint": "ecommerce store design"
+      "imageHint": "business dashboard"
     },
     {
       "id": "project-4",
-      "description": "Social media platform focused on community building.",
+      "description": "Photography studio showcase.",
       "imageUrl": "https://picsum.photos/seed/pc-p4/800/600",
-      "imageHint": "social media platform"
+      "imageHint": "photography portfolio"
+    },
+    {
+      "id": "project-5",
+      "description": "Merchant services web solution.",
+      "imageUrl": "https://picsum.photos/seed/pc-p5/800/600",
+      "imageHint": "merchant web app"
+    },
+    {
+      "id": "project-6",
+      "description": "Makeup artist service platform.",
+      "imageUrl": "https://picsum.photos/seed/pc-p6/800/600",
+      "imageHint": "beauty service site"
     },
     {
       "id": "profile-pic",
