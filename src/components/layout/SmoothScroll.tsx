@@ -12,25 +12,20 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const cursorFollowerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // Initialize Lenis
+    // Exact Lenis Initialization from HTML file
     const lenis = new Lenis({
-      duration: 1.2,
+      duration: 1.4,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-
+    // Link Lenis to ScrollTrigger
     lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.ticker.add((time) => {
+    // Sync GSAP ticker with Lenis
+    const tickerUpdate = (time: number) => {
       lenis.raf(time * 1000);
-    });
-
+    };
+    gsap.ticker.add(tickerUpdate);
     gsap.ticker.lagSmoothing(0);
 
     // Custom Cursor Logic
@@ -42,8 +37,11 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
         gsap.to(cursor, {
           x: e.clientX,
           y: e.clientY,
-          duration: 0.1,
+          duration: 0.08,
+          ease: "none"
         });
+        
+        // The "f" follower is slower
         gsap.to(follower, {
           x: e.clientX,
           y: e.clientY,
@@ -55,23 +53,21 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
       const handleHover = () => {
         gsap.to(follower, {
-          scale: 2,
-          backgroundColor: "rgba(232, 75, 44, 0.1)",
-          borderColor: "rgba(232, 75, 44, 1)",
+          width: 60,
+          height: 60,
           duration: 0.3,
         });
       };
 
       const handleUnhover = () => {
         gsap.to(follower, {
-          scale: 1,
-          backgroundColor: "transparent",
-          borderColor: "currentColor",
+          width: 40,
+          height: 40,
           duration: 0.3,
         });
       };
 
-      const interactiveElements = document.querySelectorAll("a, button, .group");
+      const interactiveElements = document.querySelectorAll("a, button, .group, .project-card");
       interactiveElements.forEach((el) => {
         el.addEventListener("mouseenter", handleHover);
         el.addEventListener("mouseleave", handleUnhover);
@@ -79,6 +75,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
       return () => {
         window.removeEventListener("mousemove", moveCursor);
+        gsap.ticker.remove(tickerUpdate);
         lenis.destroy();
       };
     }

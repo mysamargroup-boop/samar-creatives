@@ -31,6 +31,9 @@
   * {
     @apply border-border;
   }
+  html {
+    scroll-behavior: auto !important;
+  }
   body {
     @apply bg-background text-foreground antialiased selection:bg-accent selection:text-white;
     font-variant-ligatures: no-common-ligatures;
@@ -41,12 +44,13 @@
   }
 }
 
+/* Lenis Recommended Styles */
 html.lenis {
   height: auto;
 }
 
 .lenis.lenis-smooth {
-  scroll-behavior: auto;
+  scroll-behavior: auto !important;
 }
 
 .lenis.lenis-smooth [data-lenis-prevent] {
