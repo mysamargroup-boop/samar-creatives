@@ -3,28 +3,19 @@
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
   const watermarkRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (watermarkRef.current) {
-      gsap.fromTo(watermarkRef.current, 
-        { x: "5%" },
-        {
-          x: "-35%",
-          ease: "none",
-          scrollTrigger: {
-            trigger: "#hero",
-            start: "top top",
-            end: "bottom top",
-            scrub: 1.5,
-          },
-        }
-      );
+      // Autoplay "Flow" Animation
+      gsap.to(watermarkRef.current, {
+        x: "-50%",
+        duration: 20,
+        ease: "none",
+        repeat: -1,
+      });
     }
   }, []);
 
@@ -33,12 +24,16 @@ export function Hero() {
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      {/* Flow Sliding Watermark */}
-      <div 
-        ref={watermarkRef}
-        className="absolute top-[28%] left-0 font-display text-[22vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
-      >
-        RAGHAV
+      {/* Autoplay Sliding Watermark */}
+      <div className="absolute top-[28%] left-0 w-full overflow-hidden z-0 pointer-events-none select-none">
+        <div 
+          ref={watermarkRef}
+          className="flex whitespace-nowrap font-display text-[22vw] font-extrabold text-foreground/[0.04] uppercase tracking-tighter leading-none"
+        >
+          <span className="pr-[10vw]">RAGHAV</span>
+          <span className="pr-[10vw]">RAGHAV</span>
+          <span className="pr-[10vw]">RAGHAV</span>
+        </div>
       </div>
 
       <div className="hero-eyebrow relative z-10 flex items-center justify-start gap-3 text-foreground/40 mb-6 overflow-hidden w-full">
