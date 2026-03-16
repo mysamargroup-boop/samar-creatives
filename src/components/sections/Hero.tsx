@@ -1,19 +1,49 @@
+
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
+  const watermarkRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (watermarkRef.current) {
+      gsap.to(watermarkRef.current, {
+        x: -200,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1.5,
+        },
+      });
+    }
+  }, []);
+
   return (
     <section id="hero" className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-20 pt-48 md:pt-64 overflow-hidden bg-background items-start">
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      <div className="hero-eyebrow flex items-center justify-start gap-3 text-foreground/40 mb-8 overflow-hidden w-full">
+      {/* Sliding Watermark */}
+      <div 
+        ref={watermarkRef}
+        className="absolute top-1/3 left-0 font-display text-[25vw] font-extrabold text-foreground/[0.02] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
+      >
+        RAGHAV
+      </div>
+
+      <div className="hero-eyebrow relative z-10 flex items-center justify-start gap-3 text-foreground/40 mb-8 overflow-hidden w-full">
         <span className="w-10 h-[1px] bg-foreground/10 block shrink-0" />
         <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold block text-left">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="font-display text-[clamp(2rem,6vw,6rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left max-w-5xl">
+      <h1 className="relative z-10 font-display text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-[0.85] tracking-tighter uppercase mb-12 text-left max-w-5xl">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
@@ -31,7 +61,7 @@ export function Hero() {
         </div>
       </h1>
 
-      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 w-full">
+      <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-8 w-full">
         <p className="hero-desc text-foreground/55 text-[10px] md:text-sm max-w-[280px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
           <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
         </p>
