@@ -1,51 +1,29 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 231 28% 96%;
-    --foreground: 245 20% 15%;
-    --card: 0 0% 100%;
-    --card-foreground: 245 20% 15%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 245 20% 15%;
-    --primary: 245 27% 53%;
-    --primary-foreground: 0 0% 98%;
-    --secondary: 231 20% 90%;
-    --secondary-foreground: 245 27% 30%;
-    --muted: 231 10% 90%;
-    --muted-foreground: 245 10% 45%;
-    --accent: 199 67% 60%;
-    --accent-foreground: 0 0% 98%;
+    --background: 40 30% 94%; /* Ivory #f5f0e8 */
+    --foreground: 60 5% 4%;   /* Ink #0a0a09 */
+    --card: 40 30% 96%;
+    --card-foreground: 60 5% 4%;
+    --popover: 40 30% 96%;
+    --popover-foreground: 60 5% 4%;
+    --primary: 60 5% 4%;
+    --primary-foreground: 40 30% 94%;
+    --secondary: 60 5% 10%;   /* Mid #1c1c1a */
+    --secondary-foreground: 40 30% 94%;
+    --muted: 40 10% 88%;
+    --muted-foreground: 60 5% 40%;
+    --accent: 10 80% 54%;      /* Accent #e84b2c */
+    --accent-foreground: 40 30% 98%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 231 20% 85%;
-    --input: 231 20% 85%;
-    --ring: 245 27% 53%;
-    --radius: 0.75rem;
-  }
-  .dark {
-    --background: 245 20% 5%;
-    --foreground: 0 0% 98%;
-    --card: 245 20% 8%;
-    --card-foreground: 0 0% 98%;
-    --popover: 245 20% 8%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 245 27% 65%;
-    --primary-foreground: 245 20% 5%;
-    --secondary: 245 20% 15%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 245 20% 15%;
-    --muted-foreground: 245 10% 65%;
-    --accent: 199 67% 60%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 245 20% 15%;
-    --input: 245 20% 15%;
-    --ring: 245 27% 65%;
+    --border: 60 5% 4% / 0.12;
+    --input: 60 5% 4% / 0.12;
+    --ring: 60 5% 4%;
+    --radius: 0rem; /* Editorial look usually prefers sharper or very specific rounded corners */
   }
 }
 
@@ -54,17 +32,24 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground selection:bg-accent/30;
+    @apply bg-background text-foreground antialiased selection:bg-accent selection:text-white;
+    font-variant-ligatures: no-common-ligatures;
   }
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-headline tracking-tight;
+  h1, h2, h3 {
+    @apply font-display uppercase tracking-tight;
   }
 }
 
-.glass-card {
-  @apply bg-card/80 backdrop-blur-md border border-white/20 shadow-xl;
+.font-serif-italic {
+  font-family: 'Instrument Serif', serif;
+  font-style: italic;
 }
 
-.hover-lift {
-  @apply transition-transform duration-300 hover:-translate-y-2;
+.hero-gradient {
+  background: linear-gradient(180deg, rgba(245,240,232,0) 0%, rgba(245,240,232,1) 100%);
+}
+
+.text-stroke {
+  -webkit-text-stroke: 1px currentColor;
+  color: transparent;
 }

@@ -1,99 +1,90 @@
-
 import { PlaceHolderImages } from "@/lib/placeholder-images";
-import { Badge } from "@/components/ui/badge";
-import { ExternalLink, Github } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
 const projects = [
   {
-    id: "project-1",
-    title: "EcoSphere Dashboard",
-    description: "A comprehensive sustainability tracking platform for modern enterprises with real-time analytics.",
-    tags: ["React", "Next.js", "D3.js", "Tailwind"],
+    id: "01",
+    title: "ShopVista",
+    description: "Full-stack e-commerce platform with real-time inventory, Stripe checkout, and an admin dashboard.",
+    tags: ["React", "Node.js", "MongoDB", "Stripe"],
     image: "project-1",
-    links: { live: "#", github: "#" }
+    color: "linear-gradient(135deg,#12200f,#1e3318)"
   },
   {
-    id: "project-2",
-    title: "Nova Mobile Wallet",
-    description: "Secure, decentralized finance mobile application with intuitive transaction flows and wallet management.",
-    tags: ["React Native", "Firebase", "Web3", "TypeScript"],
+    id: "02",
+    title: "Notion Studio",
+    description: "Creative agency site with GSAP page transitions, horizontal scroll, and a custom cursor experience.",
+    tags: ["Next.js", "GSAP", "Tailwind"],
     image: "project-2",
-    links: { live: "#", github: "#" }
+    color: "linear-gradient(135deg,#1a0f0f,#2e1a1a)"
   },
   {
-    id: "project-3",
-    title: "Lumina Storefront",
-    description: "High-performance headless e-commerce experience with sub-second page loads and seamless checkout.",
-    tags: ["Shopify", "Remix", "Stripe", "PostgreSQL"],
+    id: "03",
+    title: "AnalyticsPro",
+    description: "SaaS dashboard with D3.js charts, multi-tenant auth, and real-time WebSocket data feeds.",
+    tags: ["React", "TypeScript", "D3.js"],
     image: "project-3",
-    links: { live: "#", github: "#" }
-  },
-  {
-    id: "project-4",
-    title: "Nexus Community",
-    description: "Scalable social platform for creators to build exclusive communities and monetize content.",
-    tags: ["Next.js", "Clerk", "Supabase", "Radix UI"],
-    image: "project-4",
-    links: { live: "#", github: "#" }
+    color: "linear-gradient(135deg,#0c1825,#112236)"
   }
 ];
 
 export function ProjectsGrid() {
   return (
-    <section id="projects" className="py-24 px-6 bg-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="flex flex-col gap-4">
-            <h2 className="text-4xl lg:text-5xl font-bold">Selected Projects</h2>
-            <p className="text-muted-foreground max-w-xl">
-              A collection of digital products I've built, ranging from data-heavy dashboards 
-              to sleek mobile applications.
-            </p>
-          </div>
-          <Link href="#" className="text-primary font-medium hover:underline flex items-center gap-1">
-            View all work <ExternalLink className="h-4 w-4" />
-          </Link>
-        </div>
+    <section id="works" className="py-24 bg-primary text-primary-foreground overflow-hidden">
+      <div className="px-8 mb-16 flex items-end justify-between">
+        <h2 className="font-display text-6xl sm:text-8xl leading-none">
+          SELECTED<br />WORKS
+        </h2>
+        <span className="text-[11px] uppercase tracking-widest opacity-40">03 projects</span>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project) => {
-            const projectImg = PlaceHolderImages.find(img => img.id === project.image);
-            return (
-              <div key={project.id} className="group flex flex-col gap-6">
-                <div className="relative aspect-[16/10] rounded-2xl overflow-hidden bg-muted shadow-sm hover-lift border">
-                  <Image
-                    src={projectImg?.imageUrl || `https://picsum.photos/seed/${project.id}/800/600`}
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-105"
-                    data-ai-hint={projectImg?.imageHint || "web interface"}
-                  />
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center opacity-0 group-hover:opacity-100 gap-4">
-                    <Link href={project.links.live} className="p-3 bg-white rounded-full text-black hover:bg-primary hover:text-white transition-colors">
-                      <ExternalLink className="h-5 w-5" />
-                    </Link>
-                    <Link href={project.links.github} className="p-3 bg-white rounded-full text-black hover:bg-primary hover:text-white transition-colors">
-                      <Github className="h-5 w-5" />
-                    </Link>
+      <div className="flex gap-8 px-8 overflow-x-auto pb-8 snap-x snap-mandatory no-scrollbar">
+        {projects.map((project) => {
+          const projectImg = PlaceHolderImages.find(img => img.id === project.image);
+          return (
+            <div key={project.id} className="min-w-[300px] sm:min-w-[480px] snap-start group border border-primary-foreground/10 p-1 flex flex-col bg-primary-foreground/[0.03] hover:border-primary-foreground/30 transition-all duration-500">
+              <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center" style={{ background: project.color }}>
+                <div className="absolute inset-4 sm:inset-6 bg-[#1a1a18] rounded-t-lg shadow-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-700">
+                  <div className="h-6 bg-[#252523] flex items-center px-3 gap-1 border-b border-white/5">
+                    <div className="w-1.5 h-1.5 rounded-full bg-red-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-yellow-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-green-500" />
                   </div>
-                </div>
-                <div className="flex flex-col gap-3 px-1">
-                  <div className="flex flex-wrap gap-2">
-                    {project.tags.map(tag => (
-                      <Badge key={tag} variant="secondary" className="bg-primary/5 text-primary border-none font-medium">
-                        {tag}
-                      </Badge>
-                    ))}
+                  <div className="p-4 flex flex-col items-center justify-center h-full">
+                     <Image 
+                      src={projectImg?.imageUrl || `https://picsum.photos/seed/${project.id}/800/600`}
+                      alt={project.title}
+                      fill
+                      className="object-cover opacity-50 group-hover:opacity-80 transition-opacity"
+                    />
+                    <span className="font-display text-lg opacity-40 relative z-10">{project.title}</span>
                   </div>
-                  <h3 className="text-2xl font-bold group-hover:text-primary transition-colors">{project.title}</h3>
-                  <p className="text-muted-foreground leading-relaxed">{project.description}</p>
                 </div>
               </div>
-            );
-          })}
-        </div>
+
+              <div className="p-6 flex flex-col gap-4">
+                <div className="flex justify-between items-start">
+                  <div>
+                    <h3 className="font-display text-3xl mb-2">{project.title}</h3>
+                    <p className="text-xs text-primary-foreground/40 leading-relaxed mb-4 max-w-xs">{project.description}</p>
+                    <div className="flex flex-wrap gap-2">
+                      {project.tags.map(tag => (
+                        <span key={tag} className="text-[9px] uppercase tracking-widest px-2 py-1 border border-primary-foreground/10 rounded-full opacity-60">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                  <span className="font-display text-xs opacity-20">{project.id}</span>
+                </div>
+                <Link href="#" className="text-[10px] uppercase tracking-widest text-accent hover:translate-x-2 transition-transform inline-flex items-center gap-2 mt-2">
+                  View Project <span className="text-sm">→</span>
+                </Link>
+              </div>
+            </div>
+          );
+        })}
       </div>
     </section>
   );

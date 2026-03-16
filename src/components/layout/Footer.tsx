@@ -1,36 +1,14 @@
-
-import { Github, Twitter, Linkedin, Mail, Heart } from "lucide-react";
-import Link from "next/link";
-
 export function Footer() {
   return (
-    <footer className="bg-white border-t py-12 px-6">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-        <div className="flex flex-col gap-2 items-center md:items-start">
-          <div className="font-headline font-bold text-lg">PixelCanvas</div>
-          <p className="text-sm text-muted-foreground text-center md:text-left">
-            Crafting digital experiences with purpose and precision.
-          </p>
-        </div>
-
-        <div className="flex items-center gap-6">
-          <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <Github className="h-5 w-5" />
-          </Link>
-          <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <Twitter className="h-5 w-5" />
-          </Link>
-          <Link href="#" className="text-muted-foreground hover:text-primary transition-colors">
-            <Linkedin className="h-5 w-5" />
-          </Link>
-          <Link href="mailto:hello@pixelcanvas.com" className="text-muted-foreground hover:text-primary transition-colors">
-            <Mail className="h-5 w-5" />
-          </Link>
-        </div>
-
-        <div className="text-xs text-muted-foreground flex items-center gap-1">
-          Made with <Heart className="h-3 w-3 text-destructive fill-destructive" /> © {new Date().getFullYear()} PixelCanvas
-        </div>
+    <footer className="bg-primary text-primary-foreground py-10 px-8 flex flex-col sm:flex-row items-center justify-between gap-6 border-t border-primary-foreground/5">
+      <div className="font-display text-2xl tracking-widest">SAMAR.</div>
+      
+      <div className="text-[10px] uppercase tracking-[0.2em] opacity-30">
+        © {new Date().getFullYear()} Samar. All rights reserved.
+      </div>
+      
+      <div className="flex items-center gap-3 text-[10px] uppercase tracking-widest opacity-40">
+        <span>📍 Sagar, India</span>
       </div>
     </footer>
   );

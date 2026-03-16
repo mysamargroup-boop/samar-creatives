@@ -1,74 +1,45 @@
-
-import { Button } from "@/components/ui/button";
-import { ArrowRight, Code, Palette, Zap } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { PlaceHolderImages } from "@/lib/placeholder-images";
-
 export function Hero() {
-  const heroImg = PlaceHolderImages.find(img => img.id === 'hero-bg');
-
   return (
-    <section className="relative overflow-hidden py-20 px-6 lg:py-32">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-        <div className="flex flex-col gap-8 z-10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold w-fit">
-            <Zap className="h-3 w-3 fill-primary" />
-            <span>Available for new projects</span>
-          </div>
-          <h1 className="text-5xl lg:text-7xl font-bold leading-[1.1] text-foreground tracking-tight">
-            Building the next generation of <span className="text-primary italic">digital experiences.</span>
-          </h1>
-          <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-            I'm a full-stack developer and designer specialized in building high-performance, 
-            interactive websites that bridge the gap between imagination and reality.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <Link href="#projects">
-              <Button size="lg" className="h-14 px-8 text-base gap-2 rounded-xl">
-                View My Work <ArrowRight className="h-4 w-4" />
-              </Button>
-            </Link>
-            <Link href="#contact">
-              <Button size="lg" variant="outline" className="h-14 px-8 text-base rounded-xl">
-                Get in Touch
-              </Button>
-            </Link>
-          </div>
-          <div className="flex items-center gap-8 pt-4">
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="p-2 bg-accent/10 rounded-lg">
-                <Code className="h-4 w-4 text-accent" />
-              </div>
-              Development
-            </div>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground">
-              <div className="p-2 bg-primary/10 rounded-lg">
-                <Palette className="h-4 w-4 text-primary" />
-              </div>
-              UI/UX Design
-            </div>
-          </div>
+    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-8 pb-20 overflow-hidden bg-background">
+      {/* Background elements */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[40vw] text-foreground/[0.03] select-none pointer-events-none whitespace-nowrap leading-none">
+        01
+      </div>
+      <div className="absolute top-24 right-8 font-display text-[100px] text-foreground/[0.05] leading-none select-none">
+        S.
+      </div>
+
+      <div className="relative z-10 flex flex-col gap-4">
+        <div className="flex items-center gap-3 text-accent mb-4 animate-in fade-in slide-in-from-left-8 duration-700">
+          <div className="w-8 h-[1px] bg-accent" />
+          <span className="text-[11px] uppercase tracking-[0.3em] font-bold">Creative Developer</span>
         </div>
-        
-        <div className="relative aspect-[4/3] lg:aspect-square">
-          <div className="absolute -inset-4 bg-accent/20 rounded-full blur-3xl opacity-50 animate-pulse" />
-          <div className="relative h-full w-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 hover-lift">
-            <Image
-              src={heroImg?.imageUrl || "https://picsum.photos/seed/pc-hero/1200/800"}
-              alt="Creative workspace"
-              fill
-              className="object-cover"
-              data-ai-hint="creative digital canvas"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-          </div>
+
+        <h1 className="flex flex-col font-display text-[14vw] sm:text-[12vw] leading-[0.88] tracking-tight">
+          <span className="overflow-hidden">
+            <span className="block animate-in slide-in-from-bottom-full duration-1000">SAMAR</span>
+          </span>
+          <span className="overflow-hidden">
+            <span className="block animate-in slide-in-from-bottom-full duration-1000 delay-100">BUILDS</span>
+          </span>
+        </h1>
+
+        <div className="mt-4 overflow-hidden">
+          <p className="font-serif italic text-2xl sm:text-4xl text-foreground/50 animate-in slide-in-from-bottom-full duration-1000 delay-200">
+            Websites that <span className="text-foreground/80">actually feel good.</span>
+          </p>
+        </div>
+
+        <div className="mt-12 flex flex-col sm:flex-row items-end justify-between gap-8">
+          <p className="max-w-sm text-sm leading-relaxed text-foreground/60 animate-in fade-in duration-1000 delay-300">
+            Full-stack developer from <strong className="text-foreground font-medium">Sagar, Madhya Pradesh</strong> — building immersive digital experiences with clean code, sharp design, and obsessive attention to craft.
+          </p>
           
-          {/* Floating Card UI */}
-          <div className="absolute -bottom-6 -left-6 glass-card p-6 rounded-2xl max-w-xs animate-in fade-in slide-in-from-bottom-10 duration-1000 delay-300">
-            <p className="text-sm font-medium mb-1">Recent Achievement</p>
-            <p className="text-2xl font-bold text-primary">45+ Projects Delivered</p>
-            <p className="text-xs text-muted-foreground mt-1">Across 12 different industries worldwide.</p>
+          <div className="flex flex-col items-center gap-3 animate-bounce">
+            <div className="w-[1px] h-20 bg-foreground/10 relative overflow-hidden">
+              <div className="absolute top-0 left-0 w-full h-full bg-accent animate-scroll-fill" />
+            </div>
+            <span className="text-[9px] uppercase tracking-[0.3em] text-foreground/40 [writing-mode:vertical-rl]">Scroll</span>
           </div>
         </div>
       </div>
