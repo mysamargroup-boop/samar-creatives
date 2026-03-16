@@ -4,12 +4,12 @@ export function Footer() {
   return (
     <footer className="py-20 px-8 md:px-12 border-t border-border bg-background">
       <div className="max-w-7xl mx-auto flex flex-col gap-16">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-10">
+        <div className="flex flex-col md:flex-row justify-between items-start gap-10">
           <div className="space-y-6">
-            <Link href="/" className="font-display text-[60px] md:text-[80px] font-extrabold tracking-tighter leading-none block uppercase">
+            <Link href="/" className="font-display text-[60px] md:text-[80px] font-extrabold tracking-tighter leading-none block uppercase text-left">
               Samar.
             </Link>
-            <p className="text-foreground/40 max-w-xs text-sm md:text-base">
+            <p className="text-foreground/40 max-w-xs text-sm md:text-base text-left">
               Crafting immersive digital experiences from Sagar, MP. Available for selective freelance opportunities.
             </p>
           </div>
@@ -18,25 +18,17 @@ export function Footer() {
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/30 font-bold block">Social</span>
               <ul className="space-y-2">
-                {["GitHub", "LinkedIn", "Twitter"].map((social) => (
-                  <li key={social}>
-                    <Link href="#" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">
-                      {social}
-                    </Link>
-                  </li>
-                ))}
+                <li><a href="https://instagram.com/shubham__nema" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">Instagram</a></li>
+                <li><a href="#" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">GitHub</a></li>
+                <li><a href="#" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">Twitter</a></li>
               </ul>
             </div>
             <div className="space-y-4">
               <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/30 font-bold block">Explore</span>
               <ul className="space-y-2">
-                {["Works", "About", "Process"].map((item) => (
-                  <li key={item}>
-                    <Link href={`#${item.toLowerCase()}`} className="text-sm uppercase tracking-widest hover:text-accent transition-colors">
-                      {item}
-                    </Link>
-                  </li>
-                ))}
+                <li><Link href="/works" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">Works</Link></li>
+                <li><Link href="/#about" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">About</Link></li>
+                <li><Link href="/#process" className="text-sm uppercase tracking-widest hover:text-accent transition-colors">Process</Link></li>
               </ul>
             </div>
           </div>

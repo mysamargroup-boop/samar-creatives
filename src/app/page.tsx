@@ -4,6 +4,7 @@ import { AboutMe } from "@/components/sections/AboutMe";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { StatsRow } from "@/components/sections/StatsRow";
 import { TechScroll } from "@/components/sections/TechScroll";
+import { Process } from "@/components/sections/Process";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <HorizontalWorks />
       <StatsRow />
       <AboutMe />
+      <Process />
       <TechScroll />
       <ContactForm />
     </div>
