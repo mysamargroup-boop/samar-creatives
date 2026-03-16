@@ -46,11 +46,11 @@ export function AboutMe() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start text-left">
-        <div className="w-full pr-8">
+        <div className="w-full pr-12">
           <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-8 fade-up font-bold">
             About Me
           </span>
-          <h2 className="font-display text-[clamp(2.5rem,5.5vw,4.5rem)] font-extrabold leading-[1] tracking-tighter uppercase w-full">
+          <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold leading-[1] tracking-tighter uppercase w-full">
             <div className="reveal-line w-full"><span>Developer</span></div>
             <div className="reveal-line w-full"><span>based in</span></div>
             <div className="reveal-line w-full"><span>Sagar, MP.</span></div>

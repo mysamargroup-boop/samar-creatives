@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -5,8 +6,9 @@ import Link from "next/link";
 export function ContactForm() {
   return (
     <section id="contact" className="relative py-24 md:py-48 px-6 text-center overflow-hidden bg-background border-t border-border">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[25vw] font-extrabold text-foreground/[0.02] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter">
-        Hello
+      {/* Refined Yellow Gradient Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent/20 to-transparent bg-clip-text text-transparent z-0">
+        HELLO
       </div>
       
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
