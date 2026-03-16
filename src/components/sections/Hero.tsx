@@ -13,21 +13,21 @@ export function Hero() {
         <span className="text-[10px] sm:text-[12px] uppercase tracking-[0.3em] font-bold block">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="font-display text-[clamp(2.5rem,10vw,8.5rem)] font-extrabold leading-[0.92] tracking-tighter uppercase mb-12 text-left">
+      <h1 className="font-display text-[clamp(2.5rem,10vw,9rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
         <div className="hero-title-line reveal-line">
-          <span>Digital</span>
+          <span className="font-serif italic lowercase font-normal opacity-40 -mt-2">digital</span>
         </div>
         <div className="hero-title-line reveal-line">
-          <span className="text-accent italic not-italic">Worlds</span>
+          <span className="text-accent">Worlds</span>
         </div>
         <div className="hero-title-line reveal-line">
           <span>That</span>
         </div>
         <div className="hero-title-line reveal-line">
-          <span>Move.</span>
+          <span className="font-serif italic lowercase font-normal opacity-40">move.</span>
         </div>
       </h1>
 

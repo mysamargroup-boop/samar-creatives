@@ -11,30 +11,34 @@ const projects = [
   {
     id: "01",
     title: "ShopVista",
-    category: "E-Commerce Platform",
+    category: "E-Commerce",
+    description: "A high-performance full-stack platform with real-time inventory and Stripe integration.",
+    tags: ["React", "Node.js", "MongoDB"],
     image: "https://picsum.photos/seed/pc-p1/800/600",
-    color: "#0a0a09"
   },
   {
     id: "02",
     title: "Notion Studio",
-    category: "Creative Agency Site",
+    category: "Creative Agency",
+    description: "Immersive brand experience with complex GSAP transitions and editorial design.",
+    tags: ["Next.js", "GSAP", "Tailwind"],
     image: "https://picsum.photos/seed/pc-p2/800/600",
-    color: "#0a0a09"
   },
   {
     id: "03",
     title: "AnalyticsPro",
     category: "SaaS Dashboard",
+    description: "Enterprise data visualization tool with multi-tenant authentication and charts.",
+    tags: ["React", "TypeScript", "D3.js"],
     image: "https://picsum.photos/seed/pc-p3/800/600",
-    color: "#0a0a09"
   },
   {
     id: "04",
     title: "Zaika Delights",
     category: "Restaurant Brand",
+    description: "A minimalist digital menu and booking system for a premium fine-dining establishment.",
+    tags: ["Next.js", "Prisma", "PostgreSQL"],
     image: "https://picsum.photos/seed/pc-p4/800/600",
-    color: "#0a0a09"
   }
 ];
 
@@ -48,6 +52,7 @@ export function HorizontalWorks() {
     
     if (!section || !trigger) return;
 
+    // Calculate the total width to scroll
     const totalWidth = section.scrollWidth - window.innerWidth;
 
     const pin = gsap.to(section, {
@@ -82,40 +87,53 @@ export function HorizontalWorks() {
           </div>
         </div>
 
-        <div ref={sectionRef} className="flex gap-10 px-8 md:px-12 w-fit">
+        <div ref={sectionRef} className="flex gap-12 px-8 md:px-12 w-fit">
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="group relative w-[300px] md:w-[600px] shrink-0"
+              className="group relative w-[320px] md:w-[650px] shrink-0"
             >
-              <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
+              <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-8 relative">
                 <Image 
                   src={project.image} 
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                   data-ai-hint="project showcase"
                 />
-                <div className="absolute inset-0 bg-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-foreground/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                   <div className="w-16 h-16 bg-background rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500">
+                      <span className="text-foreground font-bold text-xl">↗</span>
+                   </div>
+                </div>
               </div>
               
-              <div className="flex items-start justify-between">
-                <div>
-                  <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/40 mb-2 block font-bold">
+              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-12">
+                <div className="space-y-3">
+                  <span className="text-[10px] uppercase tracking-[0.3em] text-foreground/40 block font-bold">
                     {project.category}
                   </span>
                   <h3 className="font-display text-2xl md:text-4xl font-extrabold tracking-tight uppercase">
                     {project.title}
                   </h3>
+                  <div className="flex gap-2 flex-wrap">
+                    {project.tags.map(tag => (
+                      <span key={tag} className="text-[9px] uppercase tracking-widest px-2 py-1 border border-foreground/10 rounded-full text-foreground/40">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="w-10 h-10 border border-foreground/10 rounded-full flex items-center justify-center group-hover:bg-foreground group-hover:text-background transition-all duration-300">
-                  <span className="text-xs font-bold leading-none translate-y-px">↗</span>
+                <div className="flex flex-col justify-between py-1">
+                  <p className="text-foreground/50 text-sm md:text-base leading-relaxed max-w-md">
+                    {project.description}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
           {/* Spacer for padding-right */}
-          <div className="w-10 md:w-20 shrink-0" />
+          <div className="w-20 md:w-40 shrink-0" />
         </div>
       </div>
     </section>
