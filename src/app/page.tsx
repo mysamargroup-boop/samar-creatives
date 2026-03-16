@@ -1,5 +1,5 @@
 import { Hero } from "@/components/sections/Hero";
-import { ProjectsGrid } from "@/components/sections/ProjectsGrid";
+import { HorizontalWorks } from "@/components/sections/HorizontalWorks";
 import { AboutMe } from "@/components/sections/AboutMe";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { StatsRow } from "@/components/sections/StatsRow";
@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <div className="flex flex-col">
       <Hero />
-      <ProjectsGrid />
+      <HorizontalWorks />
       <StatsRow />
       <AboutMe />
       <TechScroll />
