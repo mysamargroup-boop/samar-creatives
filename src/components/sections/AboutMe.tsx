@@ -7,7 +7,7 @@ export function AboutMe() {
     { num: 12, label: "Projects Shipped" },
     { num: 3, label: "Years Experience" },
     { num: 8, label: "Happy Clients" },
-    { num: "∞", label: "Cups of Chai ☕" }
+    { num: "∞", label: "Cups of Chai" }
   ];
 
   return (

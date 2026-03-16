@@ -4,7 +4,7 @@ import React from "react";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-8 md:px-12 pb-20 overflow-hidden bg-[#080808]">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-8 md:px-12 pb-20 pt-40 md:pt-56 overflow-hidden bg-[#080808]">
       <div className="bg-noise" />
       <div className="hero-glow" />
 

@@ -109,15 +109,26 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
       document.querySelectorAll('.reveal-line span').forEach(span => {
         gsap.to(span, {
           y: 0, duration: 1.1, ease: 'power4.out',
-          scrollTrigger: { trigger: span.parentElement, start: 'top 82%', toggleActions: 'play none none none' }
+          scrollTrigger: { 
+            trigger: span.parentElement, 
+            start: 'top 90%', // Earlier start for mobile visibility
+            toggleActions: 'play none none none' 
+          }
         });
       });
 
       // Fade Up Elements
       gsap.utils.toArray('.fade-up').forEach((el: any) => {
         gsap.to(el, {
-          y: 0, opacity: 1, duration: 0.9, ease: 'power3.out',
-          scrollTrigger: { trigger: el, start: 'top 85%', toggleActions: 'play none none none' }
+          y: 0, 
+          opacity: 1, 
+          duration: 0.9, 
+          ease: 'power3.out',
+          scrollTrigger: { 
+            trigger: el, 
+            start: 'top 92%', // Earlier start for mobile visibility
+            toggleActions: 'play none none none' 
+          }
         });
       });
     }
