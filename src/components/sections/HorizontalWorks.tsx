@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useRef, useEffect } from "react";
@@ -101,10 +100,10 @@ export function HorizontalWorks() {
       <div ref={triggerRef} className="h-screen flex flex-col justify-center py-20 md:py-32">
         <div className="px-8 md:px-12 mb-10 flex items-end justify-between relative z-20">
           <div>
-            <span className="text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-4 font-bold">Selected Works</span>
-            <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold leading-none tracking-tighter uppercase">Projects</h2>
+            <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 block mb-4 font-bold">Selected Works</span>
+            <h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-extrabold leading-none tracking-tighter uppercase">Projects</h2>
           </div>
-          <div className="font-display text-[8vw] font-extrabold text-foreground/[0.03] leading-none tracking-tighter hidden md:block select-none pointer-events-none">
+          <div className="font-display text-[6vw] font-extrabold text-foreground/[0.03] leading-none tracking-tighter hidden md:block select-none pointer-events-none">
             {projects.length.toString().padStart(2, '0')}
           </div>
         </div>
@@ -116,7 +115,7 @@ export function HorizontalWorks() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-[80vw] md:w-[500px] shrink-0 block"
+              className="group relative w-[85vw] md:w-[480px] shrink-0 block"
             >
               <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
                 <Image 
@@ -134,26 +133,26 @@ export function HorizontalWorks() {
               </div>
               
               <div className="grid grid-cols-1 gap-4 text-left">
-                <div className="space-y-3">
+                <div className="space-y-2">
                   <div className="flex items-center gap-3">
-                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-accent block font-bold">
+                    <span className="text-[9px] uppercase tracking-[0.3em] text-accent block font-bold">
                       {project.category}
                     </span>
                     <div className="h-[1px] flex-grow bg-border" />
                   </div>
-                  <h3 className="font-display text-xl md:text-2xl font-extrabold tracking-tight uppercase">
+                  <h3 className="font-display text-lg md:text-xl font-extrabold tracking-tight uppercase group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
-                  <div className="flex gap-2 flex-wrap">
+                  <div className="flex gap-1.5 flex-wrap">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[8px] md:text-[9px] uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full text-foreground/60 font-medium">
+                      <span key={tag} className="text-[8px] uppercase tracking-widest px-2.5 py-1 bg-foreground/5 rounded-full text-foreground/60 font-bold">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <p className="text-foreground/50 text-[11px] md:text-xs leading-relaxed max-w-sm">
+                  <p className="text-foreground/40 text-[10px] md:text-xs leading-relaxed max-w-sm font-medium">
                     {project.description}
                   </p>
                 </div>

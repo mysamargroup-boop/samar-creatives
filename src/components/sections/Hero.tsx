@@ -13,7 +13,7 @@ export function Hero() {
         <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold block">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="font-display text-[clamp(2.5rem,8.5vw,9rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left">
+      <h1 className="font-display text-[clamp(2.5rem,7vw,8rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left max-w-5xl">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
@@ -32,8 +32,8 @@ export function Hero() {
       </h1>
 
       <div className="flex flex-col md:flex-row items-end justify-between gap-8">
-        <p className="hero-desc text-foreground/55 text-sm md:text-base max-w-sm leading-relaxed translate-y-10 opacity-0 text-left">
-          <strong className="text-foreground font-medium">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
+        <p className="hero-desc text-foreground/55 text-xs md:text-sm max-w-[300px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
+          <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
         </p>
         
         <div className="hero-scroll-hint opacity-0 flex flex-col items-center gap-3">
