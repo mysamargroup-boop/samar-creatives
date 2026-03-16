@@ -16,7 +16,7 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
   const preloaderRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 1. Preloader Simulation
+    // 1. Preloader Simulation - Updated for Black BG and Ivory Text
     const tl = gsap.timeline({
       onComplete: () => {
         gsap.to(preloaderRef.current, {
@@ -146,20 +146,20 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
 
   return (
     <>
-      {/* Preloader */}
+      {/* Preloader - Black BG with White/Ivory Text */}
       <div 
         ref={preloaderRef}
-        className="fixed inset-0 bg-foreground z-[9000] flex flex-col items-center justify-center overflow-hidden"
+        className="fixed inset-0 bg-background z-[9000] flex flex-col items-center justify-center overflow-hidden"
       >
-        <div className="font-display text-[12vw] font-extrabold text-background leading-none tracking-tighter">
+        <div className="font-display text-[12vw] font-extrabold text-foreground leading-none tracking-tighter">
           {percent.toString().padStart(2, '0')}
         </div>
-        <div className="text-[11px] tracking-[0.3em] uppercase text-background/50 mt-3 font-medium">
+        <div className="text-[11px] tracking-[0.3em] uppercase text-foreground/50 mt-3 font-medium">
           Loading Portfolio
         </div>
         <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-[min(400px,80vw)]">
-          <div className="w-full h-[1px] bg-background/10">
-            <div className="h-full bg-background transition-all" style={{ width: `${percent}%` }} />
+          <div className="w-full h-[1px] bg-foreground/10">
+            <div className="h-full bg-foreground transition-all" style={{ width: `${percent}%` }} />
           </div>
         </div>
       </div>

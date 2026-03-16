@@ -75,24 +75,24 @@ export function HorizontalWorks() {
 
   return (
     <section id="works" className="overflow-hidden bg-background">
-      <div ref={triggerRef} className="h-screen flex flex-col justify-center">
-        <div className="px-8 md:px-12 mb-12 flex items-end justify-between">
+      <div ref={triggerRef} className="h-screen flex flex-col justify-center py-20 md:py-32">
+        <div className="px-8 md:px-12 mb-10 flex items-end justify-between relative z-20">
           <div>
             <span className="text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-4 font-bold">Selected Works</span>
-            <h2 className="font-display text-[clamp(3rem,9vw,7rem)] font-extrabold leading-none tracking-tighter uppercase">Projects</h2>
+            <h2 className="font-display text-[clamp(2rem,6vw,5rem)] font-extrabold leading-none tracking-tighter uppercase">Projects</h2>
           </div>
-          <div className="font-display text-[8vw] font-extrabold text-foreground/[0.03] leading-none tracking-tighter hidden md:block">
+          <div className="font-display text-[10vw] font-extrabold text-foreground/[0.03] leading-none tracking-tighter hidden md:block select-none pointer-events-none">
             {projects.length.toString().padStart(2, '0')}
           </div>
         </div>
 
-        <div ref={sectionRef} className="flex gap-12 px-8 md:px-12 w-fit">
+        <div ref={sectionRef} className="flex gap-8 md:gap-16 px-8 md:px-12 w-fit relative z-10 items-start">
           {projects.map((project) => (
             <div 
               key={project.id} 
-              className="group relative w-[85vw] md:w-[650px] shrink-0"
+              className="group relative w-[80vw] md:w-[580px] shrink-0"
             >
-              <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-8 relative">
+              <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
                 <Image 
                   src={project.image} 
                   alt={project.title}
@@ -101,37 +101,41 @@ export function HorizontalWorks() {
                   data-ai-hint="project showcase"
                 />
                 <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                   <div className="w-16 h-16 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl">
+                   <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl">
                       <span className="text-accent-foreground font-bold text-xl">↗</span>
                    </div>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 md:gap-12 text-left">
-                <div className="space-y-4">
-                  <span className="text-[10px] uppercase tracking-[0.3em] text-accent block font-bold">
-                    {project.category}
-                  </span>
-                  <h3 className="font-display text-2xl md:text-4xl font-extrabold tracking-tight uppercase">
+              <div className="grid grid-cols-1 gap-4 text-left">
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[9px] md:text-[10px] uppercase tracking-[0.3em] text-accent block font-bold">
+                      {project.category}
+                    </span>
+                    <div className="h-[1px] flex-grow bg-border" />
+                  </div>
+                  <h3 className="font-display text-xl md:text-3xl font-extrabold tracking-tight uppercase">
                     {project.title}
                   </h3>
                   <div className="flex gap-2 flex-wrap">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[9px] uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full text-foreground/60 font-medium">
+                      <span key={tag} className="text-[8px] md:text-[9px] uppercase tracking-widest px-3 py-1 bg-foreground/5 rounded-full text-foreground/60 font-medium">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
-                <div className="flex flex-col justify-start py-1">
-                  <p className="text-foreground/50 text-base md:text-lg leading-relaxed max-w-md">
+                <div>
+                  <p className="text-foreground/50 text-xs md:text-sm leading-relaxed max-w-sm">
                     {project.description}
                   </p>
                 </div>
               </div>
             </div>
           ))}
-          <div className="w-[10vw] md:w-40 shrink-0" />
+          {/* Spacer to allow full scroll of the last card */}
+          <div className="w-[15vw] md:w-32 shrink-0" />
         </div>
       </div>
     </section>
