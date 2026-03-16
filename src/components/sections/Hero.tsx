@@ -4,7 +4,7 @@ import React from "react";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-8 md:px-12 pb-20 pt-40 md:pt-56 overflow-hidden bg-[#080808]">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-20 pt-48 md:pt-56 overflow-hidden bg-[#080808]">
       <div className="bg-noise" />
       <div className="hero-glow" />
 
@@ -13,7 +13,7 @@ export function Hero() {
         <span className="text-[10px] sm:text-[12px] uppercase tracking-[0.3em] font-bold block">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="font-display text-[16vw] sm:text-[10vw] font-extrabold leading-[0.92] tracking-tighter uppercase mb-12">
+      <h1 className="font-display text-[clamp(2.5rem,14vw,10rem)] font-extrabold leading-[0.92] tracking-tighter uppercase mb-12 text-left">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
@@ -26,7 +26,7 @@ export function Hero() {
       </h1>
 
       <div className="flex flex-col md:flex-row items-end justify-between gap-8">
-        <p className="hero-desc text-[#f0ede8]/45 text-sm sm:text-base max-w-sm leading-relaxed translate-y-10 opacity-0">
+        <p className="hero-desc text-[#f0ede8]/45 text-sm sm:text-base max-w-sm leading-relaxed translate-y-10 opacity-0 text-left">
           <strong className="text-white font-medium">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
         </p>
         
