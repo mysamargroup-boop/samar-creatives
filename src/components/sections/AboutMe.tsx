@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -17,7 +18,7 @@ export function AboutMe() {
           <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-8 fade-up font-bold">
             About Me
           </span>
-          <h2 className="font-display text-[clamp(2.5rem,6.5vw,4.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase w-full">
+          <h2 className="font-display text-[clamp(2.2rem,5vw,4.2rem)] font-extrabold leading-[0.95] tracking-tighter uppercase w-full">
             <div className="reveal-line"><span>Developer</span></div>
             <div className="reveal-line"><span>based in</span></div>
             <div className="reveal-line"><span>Sagar, MP.</span></div>

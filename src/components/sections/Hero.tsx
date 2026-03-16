@@ -13,9 +13,9 @@ export function Hero() {
   useEffect(() => {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current, 
-        { x: "5%" },
+        { x: "2%" },
         {
-          x: "-25%",
+          x: "-15%",
           ease: "none",
           scrollTrigger: {
             trigger: "#hero",
@@ -33,10 +33,10 @@ export function Hero() {
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      {/* Sliding Watermark - Refined Font Size and Position for Full Visibility */}
+      {/* Sliding Watermark - Scaled for visibility */}
       <div 
         ref={watermarkRef}
-        className="absolute top-[20%] left-0 font-display text-[22vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
+        className="absolute top-[25%] left-0 font-display text-[18vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
       >
         RAGHAV
       </div>

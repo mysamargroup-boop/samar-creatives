@@ -1,3 +1,4 @@
+
 "use client";
 
 import React from "react";
@@ -49,7 +50,7 @@ export function Process() {
                 {step.id}
               </div>
               <div className="space-y-4 w-full overflow-hidden">
-                <h3 className="font-display text-[clamp(1.5rem,5vw,3rem)] font-extrabold leading-[0.9] tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
+                <h3 className="font-display text-[clamp(1.5rem,4vw,2.5rem)] font-extrabold leading-[0.9] tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
                   {step.title}
                 </h3>
                 <p className="text-foreground/40 text-sm md:text-lg leading-relaxed max-w-xl group-hover:text-foreground/70 transition-colors duration-500">
