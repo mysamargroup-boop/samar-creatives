@@ -20,9 +20,9 @@ export function AboutMe() {
   useEffect(() => {
     if (bgTextRef.current) {
       gsap.fromTo(bgTextRef.current,
-        { y: "10%" },
+        { y: "15%" },
         {
-          y: "-10%",
+          y: "-15%",
           ease: "none",
           scrollTrigger: {
             trigger: "#about",
@@ -37,10 +37,10 @@ export function AboutMe() {
 
   return (
     <section id="about" className="relative py-24 md:py-40 px-6 md:px-12 bg-background overflow-hidden">
-      {/* Parallax Background Element */}
+      {/* Parallax Background Element - Reduced size for visibility */}
       <div 
         ref={bgTextRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[30vw] font-extrabold text-foreground/[0.02] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[20vw] font-extrabold text-foreground/[0.02] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
       >
         SAMAR
       </div>
@@ -50,10 +50,11 @@ export function AboutMe() {
           <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-8 fade-up font-bold">
             About Me
           </span>
-          <h2 className="font-display text-[clamp(2rem,5vw,4rem)] font-extrabold leading-[0.95] tracking-tighter uppercase w-full">
-            <div className="reveal-line"><span>Developer</span></div>
-            <div className="reveal-line"><span>based in</span></div>
-            <div className="reveal-line"><span>Sagar, MP.</span></div>
+          {/* Reduced font scale to prevent clipping */}
+          <h2 className="font-display text-[clamp(2rem,4.5vw,3.5rem)] font-extrabold leading-[0.95] tracking-tighter uppercase w-full">
+            <div className="reveal-line w-full"><span>Developer</span></div>
+            <div className="reveal-line w-full"><span>based in</span></div>
+            <div className="reveal-line w-full"><span>Sagar, MP.</span></div>
           </h2>
         </div>
 

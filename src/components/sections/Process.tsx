@@ -36,7 +36,7 @@ export function Process() {
   useEffect(() => {
     if (diagonalRef.current) {
       gsap.to(diagonalRef.current, {
-        x: "-5%",
+        x: "-10%",
         ease: "none",
         scrollTrigger: {
           trigger: "#process",
@@ -50,18 +50,18 @@ export function Process() {
 
   return (
     <section id="process" className="relative py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      {/* Diagonal Background Text */}
+      {/* Diagonal Background Text - Increased opacity for visibility */}
       <div 
         ref={diagonalRef}
-        className="absolute top-1/2 left-0 w-[150%] font-display text-[12vw] font-extrabold text-foreground/[0.015] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[15deg] origin-left"
+        className="absolute top-1/2 left-[-25%] w-[150%] font-display text-[10vw] font-extrabold text-foreground/[0.03] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[12deg] origin-left"
       >
-        STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN
+        STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN • BUILD • LAUNCH
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
         <div className="lg:sticky lg:top-32 w-full lg:w-1/3 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block fade-up">How I Work</span>
-          <h2 className="font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">
+          <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">
             My<br />Process
           </h2>
           <p className="text-foreground/50 text-sm md:text-base leading-relaxed max-w-sm">
@@ -79,7 +79,7 @@ export function Process() {
                 {step.id}
               </div>
               <div className="space-y-4 w-full overflow-hidden">
-                <h3 className="font-display text-[clamp(1.5rem,4vw,2.5rem)] font-extrabold leading-[0.9] tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
+                <h3 className="font-display text-[clamp(1.5rem,3.5vw,2.2rem)] font-extrabold leading-[0.9] tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
                   {step.title}
                 </h3>
                 <p className="text-foreground/40 text-sm md:text-lg leading-relaxed max-w-xl group-hover:text-foreground/70 transition-colors duration-500">
