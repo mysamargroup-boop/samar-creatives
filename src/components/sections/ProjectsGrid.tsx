@@ -55,36 +55,33 @@ export function ProjectsGrid() {
     const getScrollAmount = () => {
       const trackWidth = track.scrollWidth;
       const windowWidth = window.innerWidth;
+      // Calculate total width to scroll, maintaining the 64px offset from the HTML original
       return -(trackWidth - windowWidth + 64);
     };
 
-    const mm = gsap.matchMedia();
-
-    mm.add("(min-width: 768px)", () => {
-      const scrollTween = gsap.to(track, {
-        x: getScrollAmount,
-        ease: "none",
-        scrollTrigger: {
-          trigger: section,
-          start: "top top",
-          end: () => `+=${track.scrollWidth}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-          invalidateOnRefresh: true,
-        },
-      });
-
-      return () => {
-        scrollTween.kill();
-      };
+    // Initialize ScrollTrigger pinning for all screen sizes
+    const scrollTween = gsap.to(track, {
+      x: getScrollAmount,
+      ease: "none",
+      scrollTrigger: {
+        trigger: section,
+        start: "top top",
+        end: () => `+=${track.scrollWidth}`,
+        scrub: 1,
+        pin: true,
+        anticipatePin: 1,
+        invalidateOnRefresh: true,
+      },
     });
 
-    return () => mm.revert();
+    return () => {
+      scrollTween.kill();
+      ScrollTrigger.getAll().forEach(st => st.kill());
+    };
   }, []);
 
   return (
-    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden md:h-screen flex flex-col">
+    <section id="works" ref={sectionRef} className="dark-section bg-primary text-primary-foreground overflow-hidden h-screen flex flex-col">
       <div className="px-8 pt-24 pb-12 flex items-end justify-between shrink-0">
         <h2 className="font-display text-6xl sm:text-8xl leading-none">
           SELECTED<br />WORKS
@@ -92,12 +89,12 @@ export function ProjectsGrid() {
         <span className="text-[11px] uppercase tracking-widest opacity-40">{projects.length} projects</span>
       </div>
 
-      <div className="flex-grow flex items-center px-8 overflow-x-auto md:overflow-hidden no-scrollbar">
-        <div ref={trackRef} className="flex gap-8 will-change-transform py-10 md:py-0">
+      <div className="flex-grow flex items-center px-8 overflow-hidden">
+        <div ref={trackRef} className="flex gap-8 will-change-transform py-10">
           {projects.map((project) => {
             const projectImg = PlaceHolderImages.find(img => img.id === project.image);
             return (
-              <div key={project.id} className="min-w-[300px] sm:min-w-[480px] group border border-primary-foreground/10 p-1 flex flex-col bg-primary-foreground/[0.03] hover:border-primary-foreground/30 transition-all duration-500">
+              <div key={project.id} className="min-w-[85vw] sm:min-w-[480px] group border border-primary-foreground/10 p-1 flex flex-col bg-primary-foreground/[0.03] hover:border-primary-foreground/30 transition-all duration-500">
                 <div className="relative aspect-[16/10] overflow-hidden flex items-center justify-center" style={{ background: project.color }}>
                   <div className="absolute inset-4 sm:inset-6 bg-[#1a1a18] rounded-t-lg shadow-2xl overflow-hidden group-hover:scale-[1.02] transition-transform duration-700">
                     <div className="h-6 bg-[#252523] flex items-center px-3 gap-1 border-b border-white/5">
@@ -111,6 +108,7 @@ export function ProjectsGrid() {
                         alt={project.title}
                         fill
                         className="object-cover opacity-50 group-hover:opacity-80 transition-opacity"
+                        data-ai-hint="web interface"
                       />
                       <span className="font-display text-lg opacity-40 relative z-10 uppercase tracking-widest">{project.title}</span>
                     </div>
