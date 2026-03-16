@@ -4,16 +4,16 @@ import React from "react";
 
 export function Hero() {
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-20 pt-48 md:pt-64 overflow-hidden bg-background">
+    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-20 pt-48 md:pt-64 overflow-hidden bg-background items-start">
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      <div className="hero-eyebrow flex items-center gap-3 text-foreground/40 mb-8 overflow-hidden">
-        <span className="w-10 h-[1px] bg-foreground/10 block" />
-        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold block">Creative Developer — Sagar, Madhya Pradesh</span>
+      <div className="hero-eyebrow flex items-center justify-start gap-3 text-foreground/40 mb-8 overflow-hidden w-full">
+        <span className="w-10 h-[1px] bg-foreground/10 block shrink-0" />
+        <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold block text-left">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="font-display text-[clamp(2.5rem,7vw,8rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left max-w-5xl">
+      <h1 className="font-display text-[clamp(2rem,6vw,6rem)] font-extrabold leading-[0.88] tracking-tighter uppercase mb-12 text-left max-w-5xl">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
@@ -31,12 +31,12 @@ export function Hero() {
         </div>
       </h1>
 
-      <div className="flex flex-col md:flex-row items-end justify-between gap-8">
-        <p className="hero-desc text-foreground/55 text-xs md:text-sm max-w-[300px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
+      <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 w-full">
+        <p className="hero-desc text-foreground/55 text-[10px] md:text-sm max-w-[280px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
           <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
         </p>
         
-        <div className="hero-scroll-hint opacity-0 flex flex-col items-center gap-3">
+        <div className="hero-scroll-hint opacity-0 flex flex-col items-center gap-3 self-center md:self-auto">
           <div className="w-[1px] h-16 bg-gradient-to-b from-accent to-transparent animate-scroll-fill origin-top" />
           <span className="text-[9px] uppercase tracking-[0.3em] text-foreground/40 [writing-mode:vertical-rl] font-bold">Scroll</span>
         </div>

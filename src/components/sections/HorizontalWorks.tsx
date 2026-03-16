@@ -97,9 +97,9 @@ export function HorizontalWorks() {
 
   return (
     <section id="works" className="overflow-hidden bg-background dark-section">
-      <div ref={triggerRef} className="h-screen flex flex-col justify-center py-20 md:py-32">
-        <div className="px-8 md:px-12 mb-10 flex items-end justify-between relative z-20">
-          <div>
+      <div ref={triggerRef} className="min-h-screen flex flex-col justify-center py-20 md:py-32">
+        <div className="px-8 md:px-12 mb-10 flex items-end justify-between relative z-20 w-full">
+          <div className="text-left">
             <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 block mb-4 font-bold">Selected Works</span>
             <h2 className="font-display text-[clamp(2rem,6vw,3.5rem)] font-extrabold leading-none tracking-tighter uppercase">Projects</h2>
           </div>
@@ -115,7 +115,7 @@ export function HorizontalWorks() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-[85vw] md:w-[480px] shrink-0 block"
+              className="group relative w-[80vw] md:w-[480px] shrink-0 block"
             >
               <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
                 <Image 
@@ -140,26 +140,26 @@ export function HorizontalWorks() {
                     </span>
                     <div className="h-[1px] flex-grow bg-border" />
                   </div>
-                  <h3 className="font-display text-lg md:text-xl font-extrabold tracking-tight uppercase group-hover:text-accent transition-colors">
+                  <h3 className="font-display text-base md:text-xl font-extrabold tracking-tight uppercase group-hover:text-accent transition-colors">
                     {project.title}
                   </h3>
                   <div className="flex gap-1.5 flex-wrap">
                     {project.tags.map(tag => (
-                      <span key={tag} className="text-[8px] uppercase tracking-widest px-2.5 py-1 bg-foreground/5 rounded-full text-foreground/60 font-bold">
+                      <span key={tag} className="text-[7px] md:text-[8px] uppercase tracking-widest px-2.5 py-1 bg-foreground/5 rounded-full text-foreground/60 font-bold">
                         {tag}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <p className="text-foreground/40 text-[10px] md:text-xs leading-relaxed max-w-sm font-medium">
+                  <p className="text-foreground/40 text-[9px] md:text-xs leading-relaxed max-w-sm font-medium">
                     {project.description}
                   </p>
                 </div>
               </div>
             </a>
           ))}
-          <div className="w-[15vw] md:w-32 shrink-0" />
+          <div className="w-[10vw] md:w-32 shrink-0" />
         </div>
       </div>
     </section>

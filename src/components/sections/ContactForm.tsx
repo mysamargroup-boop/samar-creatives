@@ -22,7 +22,7 @@ export function ContactForm() {
             href="https://instagram.com/shubham__nema" 
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-16 py-5 md:py-7 bg-foreground text-background font-display text-base md:text-xl font-extrabold tracking-tight rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
+            className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-16 py-5 md:py-7 bg-foreground text-background font-display text-sm md:text-xl font-extrabold tracking-tight rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
           >
             <span className="relative z-10 uppercase">Send me a message ↗</span>
           </a>
