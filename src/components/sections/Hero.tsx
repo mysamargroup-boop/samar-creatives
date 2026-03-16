@@ -13,9 +13,9 @@ export function Hero() {
   useEffect(() => {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current, 
-        { x: "10%" },
+        { x: "5%" },
         {
-          x: "-30%",
+          x: "-25%",
           ease: "none",
           scrollTrigger: {
             trigger: "#hero",
@@ -29,24 +29,24 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex flex-col justify-end px-6 md:px-12 pb-20 pt-48 md:pt-64 overflow-hidden bg-background items-start">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-20 pt-32 md:pt-40 overflow-hidden bg-background items-start">
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      {/* Sliding Watermark - Updated Opacity and Position */}
+      {/* Sliding Watermark - Refined Font Size and Position for Full Visibility */}
       <div 
         ref={watermarkRef}
-        className="absolute top-[15%] left-0 font-display text-[28vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
+        className="absolute top-[20%] left-0 font-display text-[22vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0"
       >
         RAGHAV
       </div>
 
-      <div className="hero-eyebrow relative z-10 flex items-center justify-start gap-3 text-foreground/40 mb-8 overflow-hidden w-full">
+      <div className="hero-eyebrow relative z-10 flex items-center justify-start gap-3 text-foreground/40 mb-6 overflow-hidden w-full">
         <span className="w-10 h-[1px] bg-foreground/10 block shrink-0" />
         <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.3em] font-bold block text-left">Creative Developer — Sagar, Madhya Pradesh</span>
       </div>
 
-      <h1 className="relative z-10 font-display text-[clamp(2.5rem,8vw,6rem)] font-extrabold leading-[0.85] tracking-tighter uppercase mb-12 text-left max-w-5xl">
+      <h1 className="relative z-10 font-display text-[clamp(2.5rem,8vw,5.5rem)] font-extrabold leading-[0.85] tracking-tighter uppercase mb-10 text-left max-w-5xl">
         <div className="hero-title-line reveal-line">
           <span>Crafting</span>
         </div>
@@ -65,7 +65,7 @@ export function Hero() {
       </h1>
 
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-8 w-full">
-        <p className="hero-desc text-foreground/55 text-[10px] md:text-sm max-w-[280px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
+        <p className="hero-desc text-foreground/55 text-[10px] md:text-xs max-w-[260px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
           <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
         </p>
         
