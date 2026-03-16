@@ -1,9 +1,15 @@
 
 "use client";
 
-import React from "react";
+import React, { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Process() {
+  const diagonalRef = useRef<HTMLDivElement>(null);
+
   const steps = [
     {
       id: "01",
@@ -27,9 +33,32 @@ export function Process() {
     }
   ];
 
+  useEffect(() => {
+    if (diagonalRef.current) {
+      gsap.to(diagonalRef.current, {
+        x: "-5%",
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#process",
+          start: "top bottom",
+          end: "bottom top",
+          scrub: 1,
+        }
+      });
+    }
+  }, []);
+
   return (
-    <section id="process" className="py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
+    <section id="process" className="relative py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+      {/* Diagonal Background Text */}
+      <div 
+        ref={diagonalRef}
+        className="absolute top-1/2 left-0 w-[150%] font-display text-[12vw] font-extrabold text-foreground/[0.015] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[15deg] origin-left"
+      >
+        STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
         <div className="lg:sticky lg:top-32 w-full lg:w-1/3 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block fade-up">How I Work</span>
           <h2 className="font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">
