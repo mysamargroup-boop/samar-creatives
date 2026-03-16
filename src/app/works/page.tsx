@@ -2,6 +2,12 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/sections/ContactForm";
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: 'Works | SAMAR. Portfolio',
+  description: 'An archive of selected digital projects ranging from AI platforms to premium E-commerce experiences.',
+};
 
 const projects = [
   {
@@ -67,7 +73,7 @@ export default function WorksArchivePage() {
       <main className="flex-grow pt-48 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto mb-24 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block">Archive</span>
-          <h1 className="font-display text-[clamp(3rem,12vw,10rem)] font-extrabold leading-[0.85] tracking-tighter uppercase">
+          <h1 className="font-display text-[clamp(3rem,10vw,8rem)] font-extrabold leading-[0.85] tracking-tighter uppercase">
             All<br />Works.
           </h1>
         </div>

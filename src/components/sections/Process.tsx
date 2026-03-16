@@ -29,9 +29,9 @@ export function Process() {
   return (
     <section id="process" className="py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
-        <div className="lg:sticky lg:top-32 w-full lg:w-1/3">
+        <div className="lg:sticky lg:top-32 w-full lg:w-1/3 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block fade-up">How I Work</span>
-          <h2 className="font-display text-[clamp(2.5rem,6vw,5rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">
+          <h2 className="font-display text-[clamp(2.5rem,7vw,4.5rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">
             My<br />Process
           </h2>
           <p className="text-foreground/50 text-sm md:text-base leading-relaxed max-w-sm">
@@ -39,17 +39,17 @@ export function Process() {
           </p>
         </div>
 
-        <div className="w-full lg:w-2/3 space-y-0">
+        <div className="w-full lg:w-2/3 space-y-0 pr-0 md:pr-12">
           {steps.map((step, i) => (
             <div 
               key={i} 
-              className="group py-12 md:py-20 border-b border-border last:border-0 fade-up flex flex-col md:flex-row gap-8 md:gap-16 items-start"
+              className="group py-12 md:py-20 border-b border-border last:border-0 fade-up flex flex-col md:flex-row gap-8 md:gap-16 items-start text-left"
             >
               <div className="font-display text-[13px] md:text-[15px] font-bold text-accent tracking-widest shrink-0 mt-1">
                 {step.id}
               </div>
-              <div className="space-y-4">
-                <h3 className="font-display text-[24px] md:text-[40px] font-extrabold leading-none tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
+              <div className="space-y-4 w-full overflow-hidden">
+                <h3 className="font-display text-[clamp(1.5rem,5vw,3rem)] font-extrabold leading-[0.9] tracking-tight uppercase group-hover:text-accent transition-colors duration-500">
                   {step.title}
                 </h3>
                 <p className="text-foreground/40 text-sm md:text-lg leading-relaxed max-w-xl group-hover:text-foreground/70 transition-colors duration-500">
