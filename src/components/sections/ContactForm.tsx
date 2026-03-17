@@ -7,6 +7,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Magnetic } from "@/components/ui/Magnetic";
 import { SectionNumber } from "@/components/ui/SectionNumber";
+import { Github, Linkedin, Twitter } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -19,7 +20,7 @@ export function ContactForm() {
         { yPercent: 40, opacity: 0 },
         {
           yPercent: -40,
-          opacity: 0.35,
+          opacity: 0.55,
           ease: "none",
           scrollTrigger: {
             trigger: "#contact",
@@ -38,7 +39,7 @@ export function ContactForm() {
       {/* HELLO Green Gradient Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter bg-gradient-to-b from-emerald-500 to-teal-500/10 bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter bg-gradient-to-b from-emerald-500 to-teal-500/40 bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>
@@ -64,13 +65,18 @@ export function ContactForm() {
           </Magnetic>
 
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8">
-            {["GitHub", "LinkedIn", "Twitter"].map((social) => (
+            {[
+              { name: "GitHub", icon: <Github className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+              { name: "LinkedIn", icon: <Linkedin className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+              { name: "Twitter", icon: <Twitter className="w-3.5 h-3.5 md:w-4 md:h-4" /> },
+            ].map((social) => (
               <Link 
-                key={social} 
+                key={social.name} 
                 href="#" 
-                className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all"
+                className="inline-flex items-center gap-2 text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all"
               >
-                {social}
+                {social.icon}
+                {social.name}
               </Link>
             ))}
           </div>

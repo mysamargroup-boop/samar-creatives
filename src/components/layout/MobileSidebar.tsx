@@ -4,7 +4,6 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { Menu, X } from "lucide-react";
-import { Magnetic } from "@/components/ui/Magnetic";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -40,17 +39,15 @@ export function MobileSidebar() {
 
   return (
     <>
-      {/* Floating Action Button — bottom-left, mobile only */}
-      <Magnetic intensity={0.4}>
-        <button
-          onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 z-[300] md:hidden w-14 h-14 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-2xl shadow-accent/30 hover:scale-110 active:scale-95 transition-transform"
-          style={{ borderRadius: "50% 50% 50% 20%" }}
-          aria-label="Open navigation"
-        >
-          <Menu className="w-6 h-6" />
-        </button>
-      </Magnetic>
+      {/* Sticky FAB — top-left corner, always visible, water-drop shape, above everything */}
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="fixed bottom-6 left-6 z-[600] md:hidden w-12 h-12 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-2xl shadow-accent/30 hover:scale-110 active:scale-95 transition-all duration-300"
+        style={{ borderRadius: "50% 50% 50% 20%" }}
+        aria-label={isOpen ? "Close navigation" : "Open navigation"}
+      >
+        {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+      </button>
 
       {/* Backdrop overlay */}
       <div
@@ -71,9 +68,6 @@ export function MobileSidebar() {
           <Link href="/" onClick={() => setIsOpen(false)} className="font-display text-2xl font-extrabold uppercase tracking-tighter">
             Samar.
           </Link>
-          <button onClick={() => setIsOpen(false)} className="p-2 hover:bg-foreground/5 rounded-full transition-colors" aria-label="Close navigation">
-            <X className="w-5 h-5" />
-          </button>
         </div>
 
         {/* Navigation Links */}
