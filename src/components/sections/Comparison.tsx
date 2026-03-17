@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -62,7 +61,7 @@ export function Comparison() {
         }
       );
 
-      // Watermark Parallax
+      // WEB Watermark Parallax
       if (watermarkRef.current) {
         gsap.to(watermarkRef.current, {
           y: "-15%",
@@ -80,7 +79,7 @@ export function Comparison() {
   }, []);
 
   return (
-    <section ref={containerRef} id="advantages" className="relative py-16 md:py-24 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+    <section ref={containerRef} id="advantages" className="relative py-20 md:py-28 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
       {/* WEB Watermark */}
       <div 
         ref={watermarkRef}
@@ -95,7 +94,7 @@ export function Comparison() {
           <h2 className="font-display text-[clamp(2.2rem,6vw,4rem)] font-extrabold leading-[0.95] tracking-tighter uppercase mb-6">
             The Website <br /><span className="text-accent">Advantage</span>
           </h2>
-          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed Montserrat">
+          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed font-body">
             Stop building on rented land. While social media is for discovery, your website is where your brand lives, grows, and converts.
           </p>
         </div>
@@ -119,7 +118,7 @@ export function Comparison() {
                   <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center gap-2">
                     <Instagram className="w-3 h-3" /> Instagram
                   </span>
-                  <p className="text-[10px] text-foreground/40 leading-relaxed Montserrat">
+                  <p className="text-[10px] text-foreground/40 leading-relaxed font-body">
                     {benefit.insta}
                   </p>
                 </div>
@@ -128,7 +127,7 @@ export function Comparison() {
                   <span className="text-[9px] uppercase tracking-widest text-accent font-bold flex items-center gap-2">
                     <Globe className="w-3 h-3" /> Website
                   </span>
-                  <p className="text-[10px] text-foreground/70 leading-relaxed Montserrat font-medium">
+                  <p className="text-[10px] text-foreground/70 leading-relaxed font-body font-medium">
                     {benefit.web}
                   </p>
                 </div>

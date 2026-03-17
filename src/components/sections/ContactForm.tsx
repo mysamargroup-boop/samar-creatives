@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -14,9 +13,9 @@ export function ContactForm() {
   useEffect(() => {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current,
-        { y: "10%", opacity: 0 },
+        { y: "15%", opacity: 0 },
         {
-          y: "-10%",
+          y: "-15%",
           opacity: 0.1,
           ease: "none",
           scrollTrigger: {
@@ -35,7 +34,7 @@ export function ContactForm() {
       {/* HELLO Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[16vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent/30 to-transparent bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[20vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>
@@ -43,9 +42,9 @@ export function ContactForm() {
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
         <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 fade-up">Available for Freelance</span>
         
-        <h2 className="font-display text-[clamp(2.5rem,9vw,6rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-12 fade-up">
+        <h2 className="font-display text-[clamp(2.5rem,9vw,6.5rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-12 fade-up">
           Have an<br />
-          <em className="font-serif italic text-accent lowercase font-normal opacity-80">idea?</em>
+          <em className="font-serif italic text-accent lowercase font-normal opacity-80 block -mt-2">idea?</em>
         </h2>
         
         <div className="flex flex-col items-center gap-6 w-full px-4 md:px-0">
@@ -63,7 +62,7 @@ export function ContactForm() {
               <Link 
                 key={social} 
                 href="#" 
-                className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all Montserrat"
+                className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all"
               >
                 {social}
               </Link>
