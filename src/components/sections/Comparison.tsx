@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -40,35 +41,62 @@ const benefits = [
 
 export function Comparison() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const watermarkRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.to(".benefit-card", {
-        y: 0,
-        opacity: 1,
-        duration: 0.8,
-        stagger: 0.15,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: "top 80%",
-          toggleActions: "play none none none"
+      // Entrance Animation for Cards
+      gsap.fromTo(".benefit-card", 
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1,
+          stagger: 0.15,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 75%",
+            toggleActions: "play none none none"
+          }
         }
-      });
+      );
+
+      // Watermark Parallax
+      if (watermarkRef.current) {
+        gsap.to(watermarkRef.current, {
+          y: "-15%",
+          ease: "none",
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1,
+          }
+        });
+      }
     });
     return () => ctx.revert();
   }, []);
 
   return (
-    <section ref={containerRef} className="py-16 md:py-24 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      <div className="max-w-7xl mx-auto">
-        <div className="mb-16 text-left">
+    <section ref={containerRef} id="advantages" className="relative py-16 md:py-24 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+      {/* WEB Watermark */}
+      <div 
+        ref={watermarkRef}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.05] bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent"
+      >
+        WEB
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="mb-12 md:mb-16 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-4 block fade-up">Strategy</span>
-          <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-6">
+          <h2 className="font-display text-[clamp(2.2rem,6vw,4rem)] font-extrabold leading-[0.95] tracking-tighter uppercase mb-6">
             The Website <br /><span className="text-accent">Advantage</span>
           </h2>
-          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed">
-            Stop building on rented land. While social media is for discovery, your website is where your brand lives and converts.
+          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed Montserrat">
+            Stop building on rented land. While social media is for discovery, your website is where your brand lives, grows, and converts.
           </p>
         </div>
 
@@ -76,13 +104,13 @@ export function Comparison() {
           {benefits.map((benefit, i) => (
             <div 
               key={i} 
-              className="benefit-card opacity-0 translate-y-10 group p-8 bg-foreground/[0.03] border border-border rounded-3xl hover:bg-foreground/[0.05] transition-all duration-500"
+              className="benefit-card group p-8 bg-foreground/[0.03] border border-border rounded-3xl hover:bg-foreground/[0.05] transition-all duration-500"
             >
               <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-8 transition-transform group-hover:scale-110 ${benefit.color === 'accent' ? 'bg-accent text-accent-foreground' : 'bg-foreground/10 text-foreground'}`}>
                 {benefit.icon}
               </div>
               
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-6 text-left">
+              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-6 text-left leading-none">
                 {benefit.title}
               </h3>
 
@@ -91,7 +119,7 @@ export function Comparison() {
                   <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center gap-2">
                     <Instagram className="w-3 h-3" /> Instagram
                   </span>
-                  <p className="text-[10px] text-foreground/40 leading-relaxed">
+                  <p className="text-[10px] text-foreground/40 leading-relaxed Montserrat">
                     {benefit.insta}
                   </p>
                 </div>
@@ -100,7 +128,7 @@ export function Comparison() {
                   <span className="text-[9px] uppercase tracking-widest text-accent font-bold flex items-center gap-2">
                     <Globe className="w-3 h-3" /> Website
                   </span>
-                  <p className="text-[10px] text-foreground/70 leading-relaxed">
+                  <p className="text-[10px] text-foreground/70 leading-relaxed Montserrat font-medium">
                     {benefit.web}
                   </p>
                 </div>

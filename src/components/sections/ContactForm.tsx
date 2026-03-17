@@ -1,18 +1,49 @@
+
 "use client";
 
+import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function ContactForm() {
+  const watermarkRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (watermarkRef.current) {
+      gsap.fromTo(watermarkRef.current,
+        { y: "10%", opacity: 0 },
+        {
+          y: "-10%",
+          opacity: 0.1,
+          ease: "none",
+          scrollTrigger: {
+            trigger: "#contact",
+            start: "top bottom",
+            end: "bottom top",
+            scrub: 1.5,
+          }
+        }
+      );
+    }
+  }, []);
+
   return (
-    <section id="contact" className="relative py-24 md:py-32 px-6 text-center overflow-hidden bg-background border-t border-border">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent/20 to-transparent bg-clip-text text-transparent z-0">
-        WEB
+    <section id="contact" className="relative py-20 md:py-28 px-6 text-center overflow-hidden bg-background border-t border-border">
+      {/* HELLO Watermark */}
+      <div 
+        ref={watermarkRef}
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[16vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent/30 to-transparent bg-clip-text text-transparent z-0"
+      >
+        HELLO
       </div>
       
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
         <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 fade-up">Available for Freelance</span>
         
-        <h2 className="font-display text-[clamp(2.5rem,10vw,8rem)] font-extrabold leading-[0.95] tracking-tighter uppercase mb-12 fade-up">
+        <h2 className="font-display text-[clamp(2.5rem,9vw,6rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-12 fade-up">
           Have an<br />
           <em className="font-serif italic text-accent lowercase font-normal opacity-80">idea?</em>
         </h2>
@@ -32,7 +63,7 @@ export function ContactForm() {
               <Link 
                 key={social} 
                 href="#" 
-                className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all"
+                className="text-[9px] md:text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/30 border border-border rounded-full px-5 md:px-7 py-2.5 md:py-3.5 hover:bg-foreground hover:text-background transition-all Montserrat"
               >
                 {social}
               </Link>
