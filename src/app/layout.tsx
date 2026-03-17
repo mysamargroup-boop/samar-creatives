@@ -4,6 +4,7 @@ import { Navbar } from '@/components/layout/Navbar';
 import { Footer } from '@/components/layout/Footer';
 import { SmoothScroll } from '@/components/layout/SmoothScroll';
 import { Toaster } from '@/components/ui/toaster';
+import { ConnectPopup } from '@/components/ui/ConnectPopup';
 
 export const metadata: Metadata = {
   title: 'SAMAR. | Creative Full-Stack Developer & Designer',
@@ -44,6 +45,7 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
+          <ConnectPopup />
           <Toaster />
         </SmoothScroll>
       </body>

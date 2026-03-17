@@ -35,8 +35,13 @@ export function Footer() {
         </div>
 
         <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-left">
-          <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-bold">
-            © {new Date().getFullYear()} <span className="text-foreground">Samar</span> — All rights reserved.
+          <div className="flex flex-col items-start gap-1">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-bold">
+              © {new Date().getFullYear()} <span className="text-foreground">Samar</span> — All rights reserved.
+            </div>
+            <div className="text-[11px] uppercase tracking-widest font-extrabold bg-gradient-to-r from-accent to-[#ff5f3f] bg-clip-text text-transparent">
+              Designed by Samar
+            </div>
           </div>
           
           <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-foreground/30 font-bold items-start">

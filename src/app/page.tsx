@@ -1,6 +1,7 @@
 import { Hero } from "@/components/sections/Hero";
 import { HorizontalWorks } from "@/components/sections/HorizontalWorks";
 import { AboutMe } from "@/components/sections/AboutMe";
+import { Comparison } from "@/components/sections/Comparison";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { StatsRow } from "@/components/sections/StatsRow";
 import { TechScroll } from "@/components/sections/TechScroll";
@@ -13,6 +14,7 @@ export default function Home() {
       <HorizontalWorks />
       <StatsRow />
       <AboutMe />
+      <Comparison />
       <Process />
       <TechScroll />
       <ContactForm />
