@@ -8,7 +8,6 @@ export function Hero() {
 
   useEffect(() => {
     if (watermarkRef.current) {
-      // Autoplay "Flow" Animation
       gsap.to(watermarkRef.current, {
         x: "-50%",
         duration: 20,
@@ -19,15 +18,14 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-20 pt-32 md:pt-40 overflow-hidden bg-background items-start text-left">
+    <section id="hero" className="relative min-h-[85vh] flex flex-col justify-end px-6 md:px-12 pb-16 pt-24 md:pt-32 overflow-hidden bg-background items-start text-left">
       <div className="bg-noise" />
       <div className="hero-glow" />
 
-      {/* Autoplay Sliding Watermark */}
-      <div className="absolute top-[28%] left-0 w-full overflow-hidden z-0 pointer-events-none select-none">
+      <div className="absolute top-[25%] left-0 w-full overflow-hidden z-0 pointer-events-none select-none">
         <div 
           ref={watermarkRef}
-          className="flex whitespace-nowrap font-display text-[22vw] font-extrabold text-foreground/[0.04] uppercase tracking-tighter leading-none"
+          className="flex whitespace-nowrap font-display text-[20vw] font-extrabold text-foreground/[0.04] uppercase tracking-tighter leading-none"
         >
           <span className="pr-[10vw]">RAGHAV</span>
           <span className="pr-[10vw]">RAGHAV</span>
@@ -60,11 +58,11 @@ export function Hero() {
 
       <div className="relative z-10 flex flex-col md:flex-row items-start md:items-end justify-between gap-8 w-full">
         <p className="hero-desc text-foreground/55 text-[10px] md:text-xs max-w-[260px] leading-relaxed translate-y-10 opacity-0 text-left uppercase font-bold tracking-wider">
-          <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences that push boundaries.
+          <strong className="text-foreground font-extrabold">Full-stack developer & designer</strong> building beautiful, high-performance websites and web experiences.
         </p>
         
         <div className="hero-scroll-hint opacity-0 flex flex-col items-center gap-3 self-center md:self-auto">
-          <div className="w-[1px] h-16 bg-gradient-to-b from-accent to-transparent animate-scroll-fill origin-top" />
+          <div className="w-[1px] h-12 bg-gradient-to-b from-accent to-transparent animate-scroll-fill origin-top" />
           <span className="text-[9px] uppercase tracking-[0.3em] text-foreground/40 [writing-mode:vertical-rl] font-bold">Scroll</span>
         </div>
       </div>

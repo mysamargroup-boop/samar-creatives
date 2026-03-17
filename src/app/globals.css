@@ -67,7 +67,6 @@
   font-family: 'Instrument Serif', serif;
 }
 
-/* Custom Cursor Styles */
 #cursor {
   @apply fixed w-[12px] h-[12px] rounded-full pointer-events-none z-[9999] bg-foreground;
   transform: translate(-50%, -50%);
@@ -117,9 +116,6 @@ html.lenis {
 }
 .lenis.lenis-smooth {
   scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
 }
 .lenis.lenis-stopped {
   @apply overflow-hidden;

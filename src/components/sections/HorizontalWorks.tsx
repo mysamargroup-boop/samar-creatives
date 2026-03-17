@@ -43,24 +43,6 @@ const projects = [
     tags: ["Next.js", "Motion", "Gallery"],
     image: "https://picsum.photos/seed/pc-p4/800/600",
     link: "https://ashok-studio-photography.vercel.app/"
-  },
-  {
-    id: "05",
-    title: "Merchant Web",
-    category: "Web App",
-    description: "Custom digital solutions and web development for modern businesses and merchants.",
-    tags: ["TypeScript", "Next.js", "Vercel"],
-    image: "https://picsum.photos/seed/pc-p5/800/600",
-    link: "https://merchant-web-sigma.vercel.app/"
-  },
-  {
-    id: "06",
-    title: "Samar Makeup",
-    category: "Beauty Services",
-    description: "Professional makeup artist portfolio and streamlined booking platform.",
-    tags: ["React", "Styling", "Booking"],
-    image: "https://picsum.photos/seed/pc-p6/800/600",
-    link: "https://samar-makeup.vercel.app/"
   }
 ];
 
@@ -91,13 +73,12 @@ export function HorizontalWorks() {
 
     return () => {
       pin.kill();
-      ScrollTrigger.getAll().forEach(t => t.kill());
     };
   }, []);
 
   return (
-    <section id="works" className="overflow-hidden bg-background dark-section">
-      <div ref={triggerRef} className="min-h-screen flex flex-col justify-center py-20 md:py-32">
+    <section id="works" className="overflow-hidden bg-background">
+      <div ref={triggerRef} className="min-h-screen flex flex-col justify-center py-16 md:py-20">
         <div className="px-8 md:px-12 mb-10 flex items-end justify-between relative z-20 w-full">
           <div className="text-left">
             <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 block mb-4 font-bold">Selected Works</span>
@@ -108,14 +89,14 @@ export function HorizontalWorks() {
           </div>
         </div>
 
-        <div ref={sectionRef} className="flex gap-8 md:gap-16 px-8 md:px-12 w-fit relative z-10 items-start">
+        <div ref={sectionRef} className="flex gap-8 md:gap-12 px-8 md:px-12 w-fit relative z-10 items-start">
           {projects.map((project) => (
             <a 
               key={project.id} 
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-[80vw] md:w-[480px] shrink-0 block"
+              className="group relative w-[80vw] md:w-[450px] shrink-0 block"
             >
               <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
                 <Image 
@@ -123,39 +104,28 @@ export function HorizontalWorks() {
                   alt={project.title}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  data-ai-hint="project showcase"
+                  data-ai-hint="project"
                 />
                 <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                   <div className="w-14 h-14 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl">
+                   <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl">
                       <span className="text-accent-foreground font-bold text-xl">↗</span>
                    </div>
                 </div>
               </div>
               
-              <div className="grid grid-cols-1 gap-4 text-left">
-                <div className="space-y-2">
-                  <div className="flex items-center gap-3">
-                    <span className="text-[9px] uppercase tracking-[0.3em] text-accent block font-bold">
-                      {project.category}
-                    </span>
-                    <div className="h-[1px] flex-grow bg-border" />
-                  </div>
-                  <h3 className="font-display text-base md:text-xl font-extrabold tracking-tight uppercase group-hover:text-accent transition-colors">
-                    {project.title}
-                  </h3>
-                  <div className="flex gap-1.5 flex-wrap">
-                    {project.tags.map(tag => (
-                      <span key={tag} className="text-[7px] md:text-[8px] uppercase tracking-widest px-2.5 py-1 bg-foreground/5 rounded-full text-foreground/60 font-bold">
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
+              <div className="space-y-3 text-left">
+                <div className="flex items-center gap-3">
+                  <span className="text-[9px] uppercase tracking-[0.3em] text-accent font-bold">
+                    {project.category}
+                  </span>
+                  <div className="h-[1px] flex-grow bg-border" />
                 </div>
-                <div>
-                  <p className="text-foreground/40 text-[9px] md:text-xs leading-relaxed max-w-sm font-medium">
-                    {project.description}
-                  </p>
-                </div>
+                <h3 className="font-display text-base md:text-xl font-extrabold tracking-tight uppercase group-hover:text-accent transition-colors">
+                  {project.title}
+                </h3>
+                <p className="text-foreground/40 text-[9px] md:text-xs leading-relaxed max-w-sm font-medium">
+                  {project.description}
+                </p>
               </div>
             </a>
           ))}
