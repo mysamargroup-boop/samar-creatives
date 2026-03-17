@@ -1,3 +1,4 @@
+
 "use client";
 
 import * as React from "react";
@@ -37,6 +38,12 @@ export function Navbar() {
         <li>
           <Link href="/works" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
             Works
+            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+          </Link>
+        </li>
+        <li>
+          <Link href="/services" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
+            Services
             <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
           </Link>
         </li>

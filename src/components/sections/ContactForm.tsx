@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -34,7 +35,7 @@ export function ContactForm() {
       {/* HELLO Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[20vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>
@@ -47,7 +48,7 @@ export function ContactForm() {
           <em className="font-serif italic text-accent lowercase font-normal opacity-80 block -mt-2">idea?</em>
         </h2>
         
-        <div className="flex flex-col items-center gap-6 w-full px-4 md:px-0">
+        <div className="flex flex-col items-center gap-6 w-full px-4 md:px-0 Montserrat">
           <a 
             href="https://instagram.com/shubham__nema" 
             target="_blank"

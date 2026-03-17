@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -12,9 +13,12 @@ export function ConnectPopup() {
     if (hasBeenShown) return;
 
     const handleScroll = () => {
-      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrolled = (winScroll / height) * 100;
+      const scrollY = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      
+      // Calculate scroll percentage accurately
+      const scrolled = (scrollY / (documentHeight - windowHeight)) * 100;
 
       if (scrolled > 50) {
         setIsVisible(true);
@@ -23,7 +27,7 @@ export function ConnectPopup() {
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -54,7 +58,7 @@ export function ConnectPopup() {
             <h4 className="font-display text-2xl font-extrabold uppercase tracking-tight leading-none text-left">
               Let&apos;s <br />Connect
             </h4>
-            <p className="text-[11px] font-medium opacity-60 leading-relaxed text-left">
+            <p className="text-[11px] font-medium opacity-60 leading-relaxed text-left Montserrat">
               Love the craft? Follow my journey and daily updates on Instagram.
             </p>
           </div>

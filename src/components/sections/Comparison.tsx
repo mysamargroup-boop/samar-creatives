@@ -1,3 +1,4 @@
+
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -83,7 +84,7 @@ export function Comparison() {
       {/* WEB Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.05] bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.1] bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent"
       >
         WEB
       </div>
@@ -94,7 +95,7 @@ export function Comparison() {
           <h2 className="font-display text-[clamp(2.2rem,6vw,4rem)] font-extrabold leading-[0.95] tracking-tighter uppercase mb-6">
             The Website <br /><span className="text-accent">Advantage</span>
           </h2>
-          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed font-body">
+          <p className="text-foreground/50 text-sm max-w-xl leading-relaxed Montserrat">
             Stop building on rented land. While social media is for discovery, your website is where your brand lives, grows, and converts.
           </p>
         </div>
@@ -113,12 +114,12 @@ export function Comparison() {
                 {benefit.title}
               </h3>
 
-              <div className="space-y-4 text-left">
+              <div className="space-y-4 text-left Montserrat">
                 <div className="space-y-1">
                   <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center gap-2">
                     <Instagram className="w-3 h-3" /> Instagram
                   </span>
-                  <p className="text-[10px] text-foreground/40 leading-relaxed font-body">
+                  <p className="text-[10px] text-foreground/40 leading-relaxed">
                     {benefit.insta}
                   </p>
                 </div>
@@ -127,7 +128,7 @@ export function Comparison() {
                   <span className="text-[9px] uppercase tracking-widest text-accent font-bold flex items-center gap-2">
                     <Globe className="w-3 h-3" /> Website
                   </span>
-                  <p className="text-[10px] text-foreground/70 leading-relaxed font-body font-medium">
+                  <p className="text-[10px] text-foreground/70 leading-relaxed font-medium">
                     {benefit.web}
                   </p>
                 </div>
