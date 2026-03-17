@@ -118,7 +118,7 @@ export function ServicesClient() {
           {services.map((service, i) => (
             <div 
               key={i} 
-              className={`service-card relative overflow-hidden bg-foreground/[0.02] border border-border backdrop-blur-sm rounded-[2rem] p-6 lg:p-10 flex flex-col transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-accent/5 hover:border-accent/20 hover:bg-foreground/[0.04] group w-full`}
+              className={`service-card h-full relative overflow-hidden bg-foreground/[0.02] border border-border backdrop-blur-sm rounded-[2rem] p-6 lg:p-10 flex flex-col transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl hover:shadow-accent/5 hover:border-accent/20 hover:bg-foreground/[0.04] group w-full`}
             >
               <div className="aspect-[16/10] w-full bg-foreground/[0.03] rounded-2xl mb-8 lg:mb-10 flex items-center justify-center relative overflow-hidden transition-transform duration-500 group-hover:scale-[1.02]">
                 <div className="absolute inset-0 bg-gradient-to-br from-accent/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
