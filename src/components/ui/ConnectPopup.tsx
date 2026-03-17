@@ -8,27 +8,12 @@ export function ConnectPopup() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Check if shown in this session
-    const hasBeenShown = sessionStorage.getItem("connect_popup_shown");
-    if (hasBeenShown) return;
+    // Show popup after 3 seconds for better visibility
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 3000);
 
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const windowHeight = window.innerHeight;
-      const documentHeight = document.documentElement.scrollHeight;
-      
-      // Calculate scroll percentage accurately
-      const scrolled = (scrollY / (documentHeight - windowHeight)) * 100;
-
-      if (scrolled > 50) {
-        setIsVisible(true);
-        sessionStorage.setItem("connect_popup_shown", "true");
-        window.removeEventListener("scroll", handleScroll);
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => clearTimeout(timer);
   }, []);
 
   const handleDismiss = () => {

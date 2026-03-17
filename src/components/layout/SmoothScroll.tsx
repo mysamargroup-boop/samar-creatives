@@ -92,11 +92,22 @@ export function SmoothScroll({ children }: { children: React.ReactNode }) {
     // 4. Entrance Animations
     function initEntrance() {
       const etl = gsap.timeline({ defaults: { ease: 'power4.out' } });
+      
+      // 3D Staggered entrance for the Hero Title
+      etl.from('.hero-title-line span', { 
+        yPercent: 120, 
+        rotationX: -90,
+        transformOrigin: "50% 50% -50px",
+        duration: 1.2, 
+        stagger: 0.1,
+        opacity: 0,
+        ease: "expo.out"
+      }, 0.2);
+
       etl.from('nav', { y: -40, opacity: 0, duration: 0.8 }, 0);
-      etl.from('.hero-eyebrow span', { y: 30, opacity: 0, duration: 0.7, stagger: 0.1 }, 0.3);
-      etl.to('.hero-title-line span', { y: 0, duration: 1, ease: 'power4.out', stagger: 0.12 }, 0.4);
-      etl.to('.hero-desc', { y: 0, opacity: 1, duration: 0.8 }, 0.9);
-      etl.to('.hero-scroll-hint', { opacity: 1, duration: 0.8 }, 1.1);
+      etl.from('.hero-eyebrow span', { y: 30, opacity: 0, duration: 0.7, stagger: 0.1 }, 0.4);
+      etl.to('.hero-desc', { y: 0, opacity: 1, duration: 0.8 }, 1.0);
+      etl.to('.hero-scroll-hint', { opacity: 1, duration: 0.8 }, 1.2);
 
       // Scroll Progress Bar
       gsap.to('#scroll-progress', {

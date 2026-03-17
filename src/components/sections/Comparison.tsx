@@ -104,19 +104,19 @@ export function Comparison() {
           {benefits.map((benefit, i) => (
             <div 
               key={i} 
-              className="benefit-card group p-8 bg-foreground/[0.03] border border-border rounded-3xl hover:bg-foreground/[0.05] transition-all duration-500"
+              className="benefit-card group p-8 bg-foreground/[0.03] border border-border rounded-3xl hover:bg-foreground/[0.05] transition-all duration-500 flex flex-col items-center text-center"
             >
-              <div className={`w-10 h-10 rounded-full flex items-center justify-center mb-8 transition-transform group-hover:scale-110 ${benefit.color === 'accent' ? 'bg-accent text-accent-foreground' : 'bg-foreground/10 text-foreground'}`}>
+              <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-6 transition-transform group-hover:scale-110 ${benefit.color === 'accent' ? 'bg-accent text-accent-foreground' : 'bg-foreground/10 text-foreground'}`}>
                 {benefit.icon}
               </div>
               
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-6 text-left leading-none">
+              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-6 leading-none">
                 {benefit.title}
               </h3>
 
-              <div className="space-y-4 text-left Montserrat">
-                <div className="space-y-1">
-                  <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center gap-2">
+              <div className="space-y-4 Montserrat w-full">
+                <div className="space-y-1 flex flex-col items-center">
+                  <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center justify-center gap-2">
                     <Instagram className="w-3 h-3" /> Instagram
                   </span>
                   <p className="text-[10px] text-foreground/40 leading-relaxed">
@@ -124,8 +124,8 @@ export function Comparison() {
                   </p>
                 </div>
                 <div className="h-[1px] w-full bg-border" />
-                <div className="space-y-1">
-                  <span className="text-[9px] uppercase tracking-widest text-accent font-bold flex items-center gap-2">
+                <div className="space-y-1 flex flex-col items-center">
+                  <span className="text-[9px] uppercase tracking-widest text-accent font-bold flex items-center justify-center gap-2">
                     <Globe className="w-3 h-3" /> Website
                   </span>
                   <p className="text-[10px] text-foreground/70 leading-relaxed font-medium">

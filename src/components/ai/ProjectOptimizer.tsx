@@ -7,7 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from "@/components/ui/card";
 import { Sparkles, Copy, RefreshCcw, Wand2, Loader2, Check } from "lucide-react";
-import { aidProjectDescriptionGeneration } from "@/ai/flows/aid-project-description-generation";
+// import { aidProjectDescriptionGeneration } from "@/ai/flows/aid-project-description-generation";
 import { useToast } from "@/hooks/use-toast";
 
 export function ProjectOptimizer() {
@@ -30,13 +30,11 @@ export function ProjectOptimizer() {
     setResult("");
 
     try {
-      const output = await aidProjectDescriptionGeneration({
-        projectName: formData.projectName,
-        technologiesUsed: formData.technologiesUsed.split(",").map(t => t.trim()),
-        keyFeatures: formData.keyFeatures.split(",").map(f => f.trim()),
-        projectGoal: formData.projectGoal,
-        myRole: formData.myRole,
-      });
+      // Mocking the AI response for static export deployment
+      await new Promise(resolve => setTimeout(resolve, 1500));
+      const output = { 
+        description: `Built with ${formData.technologiesUsed}, ${formData.projectName} is a modern web application focused on delivering scalable solutions. Key features include ${formData.keyFeatures}. The objective was to ${formData.projectGoal}.` 
+      };
       setResult(output.description);
     } catch (error) {
       toast({

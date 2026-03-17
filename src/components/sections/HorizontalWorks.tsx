@@ -68,6 +68,16 @@ export function HorizontalWorks() {
         start: "top top",
         end: () => `+=${totalWidth}`,
         invalidateOnRefresh: true,
+        onUpdate: (self) => {
+          // Calculate skew based on scroll velocity
+          const velocity = Math.min(Math.max(self.getVelocity() / 150, -15), 15);
+          gsap.to(".project-card-wrap", {
+            skewX: -velocity,
+            duration: 0.5,
+            ease: "power2.out",
+            overwrite: "auto"
+          });
+        }
       }
     });
 
@@ -96,7 +106,7 @@ export function HorizontalWorks() {
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="group relative w-[80vw] md:w-[450px] shrink-0 block"
+              className="project-card-wrap group relative w-[80vw] md:w-[450px] shrink-0 block"
             >
               <div className="aspect-[16/10] bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
                 <Image 

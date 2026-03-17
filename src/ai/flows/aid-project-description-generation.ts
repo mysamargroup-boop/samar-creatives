@@ -1,4 +1,4 @@
-'use server';
+// 'use server';
 /**
  * @fileOverview This file implements a Genkit flow for generating compelling and concise project descriptions.
  *

@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -14,9 +15,9 @@ export function ContactForm() {
   useEffect(() => {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current,
-        { y: "15%", opacity: 0 },
+        { yPercent: 40, opacity: 0 },
         {
-          y: "-15%",
+          yPercent: -40,
           opacity: 0.15,
           ease: "none",
           scrollTrigger: {
@@ -35,7 +36,7 @@ export function ContactForm() {
       {/* HELLO Green Gradient Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-emerald-500 to-teal-500/10 bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter bg-gradient-to-b from-emerald-500 to-teal-500/10 bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>
@@ -49,14 +50,16 @@ export function ContactForm() {
         </h2>
         
         <div className="flex flex-col items-center gap-6 w-full px-4 md:px-0 Montserrat">
-          <a 
-            href="https://instagram.com/shubham__nema" 
-            target="_blank"
-            rel="noopener noreferrer"
-            className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-14 py-4 md:py-6 bg-foreground text-background font-display text-sm md:text-lg font-extrabold tracking-tight rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
-          >
-            <span className="relative z-10 uppercase">Send me a message ↗</span>
-          </a>
+          <Magnetic intensity={0.4}>
+            <a 
+              href="https://www.instagram.com/samar_creative_studio/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-14 py-4 md:py-6 bg-foreground text-background font-display text-sm md:text-lg font-extrabold tracking-tight rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
+            >
+              <span className="relative z-10 uppercase">Send me a message ↗</span>
+            </a>
+          </Magnetic>
 
           <div className="flex flex-wrap justify-center gap-3 md:gap-4 mt-8">
             {["GitHub", "LinkedIn", "Twitter"].map((social) => (

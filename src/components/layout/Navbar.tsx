@@ -3,6 +3,7 @@
 
 import * as React from "react";
 import Link from "next/link";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export function Navbar() {
   const [hidden, setHidden] = React.useState(false);
@@ -30,45 +31,57 @@ export function Navbar() {
         hidden ? "-translate-y-full" : "translate-y-0"
       } ${scrolled ? "bg-background/80 backdrop-blur-md border-b border-border py-5" : ""}`}
     >
-      <Link href="/" className="font-display text-xl font-extrabold tracking-tighter text-foreground uppercase">
-        Samar.
-      </Link>
+      <Magnetic intensity={0.2}>
+        <Link href="/" className="font-display text-xl font-extrabold tracking-tighter text-foreground uppercase inline-block font-sans">
+          Samar.
+        </Link>
+      </Magnetic>
 
       <ul className="hidden md:flex items-center gap-10">
         <li>
-          <Link href="/works" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
-            Works
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-          </Link>
+          <Magnetic intensity={0.2}>
+            <Link href="/works" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
+              Works
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </Magnetic>
         </li>
         <li>
-          <Link href="/services" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
-            Services
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-          </Link>
+          <Magnetic intensity={0.2}>
+            <Link href="/services" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
+              Services
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </Magnetic>
         </li>
         <li>
-          <Link href="/#about" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
-            About
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-          </Link>
+          <Magnetic intensity={0.2}>
+            <Link href="/#about" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
+              About
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </Magnetic>
         </li>
         <li>
-          <Link href="/#process" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group">
-            Process
-            <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-          </Link>
+          <Magnetic intensity={0.2}>
+            <Link href="/#process" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
+              Process
+              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
+            </Link>
+          </Magnetic>
         </li>
       </ul>
 
-      <a 
-        href="https://instagram.com/shubham__nema" 
-        target="_blank"
-        rel="noopener noreferrer"
-        className="text-[10px] uppercase tracking-[0.2em] font-bold bg-foreground text-background px-7 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all active:scale-95"
-      >
-        Let&apos;s Talk
-      </a>
+      <Magnetic intensity={0.4}>
+        <a 
+          href="https://www.instagram.com/samar_creative_studio/" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-[10px] uppercase tracking-[0.2em] font-bold bg-foreground text-background px-7 py-3 rounded-full hover:bg-accent hover:text-accent-foreground transition-all active:scale-95 inline-block"
+        >
+          Let&apos;s Talk
+        </a>
+      </Magnetic>
     </nav>
   );
 }

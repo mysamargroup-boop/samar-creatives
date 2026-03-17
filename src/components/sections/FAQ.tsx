@@ -42,9 +42,9 @@ export function FAQ() {
   useEffect(() => {
     if (watermarkRef.current) {
       gsap.fromTo(watermarkRef.current,
-        { x: "10%", opacity: 0 },
+        { xPercent: 15, opacity: 0 },
         {
-          x: "-10%",
+          xPercent: -15,
           opacity: 0.1,
           ease: "none",
           scrollTrigger: {
@@ -63,7 +63,7 @@ export function FAQ() {
       {/* ASK Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.05] bg-gradient-to-b from-foreground to-transparent bg-clip-text text-transparent"
+        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.05] bg-gradient-to-b from-foreground to-transparent bg-clip-text text-transparent"
       >
         ASK
       </div>

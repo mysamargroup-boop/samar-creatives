@@ -46,8 +46,8 @@ export function AboutMe() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-12 text-left">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-          <div className="w-full lg:pr-12">
+        <div className="grid grid-cols-1 lg:grid-cols-[1.3fr_1fr] gap-12 lg:gap-20 items-start">
+          <div className="w-full">
             <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 block mb-6 fade-up font-bold">
               About Me
             </span>

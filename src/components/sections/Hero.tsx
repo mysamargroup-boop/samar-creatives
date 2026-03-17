@@ -25,11 +25,11 @@ export function Hero() {
       <div className="absolute top-[25%] left-0 w-full overflow-hidden z-0 pointer-events-none select-none">
         <div 
           ref={watermarkRef}
-          className="flex whitespace-nowrap font-display text-[20vw] font-extrabold text-foreground/[0.04] uppercase tracking-tighter leading-none"
+          className="flex whitespace-nowrap font-display text-[20vw] font-extrabold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent opacity-[0.07] uppercase tracking-tighter leading-none"
         >
-          <span className="pr-[10vw]">RAGHAV</span>
-          <span className="pr-[10vw]">RAGHAV</span>
-          <span className="pr-[10vw]">RAGHAV</span>
+          <span className="mr-[5vw]">RAGHAV</span>
+          <span className="mr-[5vw]">RAGHAV</span>
+          <span className="mr-[5vw]">RAGHAV</span>
         </div>
       </div>
 
