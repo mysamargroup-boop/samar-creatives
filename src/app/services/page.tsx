@@ -20,7 +20,6 @@ const services = [
       "UI/UX Design",
       "Landing Page Design"
     ],
-    color: "bg-[#2c3e50]",
     illustrationHint: "modern web design"
   },
   {
@@ -32,7 +31,6 @@ const services = [
       "Laravel Development",
       "React JS Development"
     ],
-    color: "bg-[#2980b9]",
     illustrationHint: "software engineering"
   },
   {
@@ -44,7 +42,6 @@ const services = [
       "PHP Development",
       "Laravel Development"
     ],
-    color: "bg-[#34495e]",
     illustrationHint: "online shopping system"
   }
 ];
@@ -81,28 +78,28 @@ export default function ServicesPage() {
           {services.map((service, i) => (
             <div 
               key={i} 
-              className={`relative overflow-hidden ${service.color} rounded-[2rem] p-10 flex flex-col transition-all duration-500 hover:-translate-y-4 hover:shadow-2xl group`}
+              className="relative overflow-hidden bg-foreground/[0.02] border border-border backdrop-blur-sm rounded-[2rem] p-10 flex flex-col transition-all duration-500 hover:-translate-y-4 hover:bg-foreground/[0.04] group"
             >
               {/* Illustration Placeholder area */}
-              <div className="aspect-[16/10] w-full bg-white/10 rounded-2xl mb-10 flex items-center justify-center relative overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-transparent" />
+              <div className="aspect-[16/10] w-full bg-foreground/5 rounded-2xl mb-10 flex items-center justify-center relative overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent" />
                 {service.icon}
               </div>
 
-              <h2 className="font-display text-3xl font-extrabold text-white uppercase tracking-tight mb-8">
+              <h2 className="font-display text-3xl font-extrabold text-foreground uppercase tracking-tight mb-8">
                 {service.title}
               </h2>
 
               <ul className="space-y-4">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-center gap-4 text-white/80 group-hover:text-white transition-colors">
+                  <li key={idx} className="flex items-center gap-4 text-foreground/60 group-hover:text-foreground transition-colors">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                     <span className="text-sm font-medium Montserrat">{feature}</span>
                   </li>
                 ))}
               </ul>
               
-              <div className="mt-12 pt-8 border-t border-white/10">
+              <div className="mt-12 pt-8 border-t border-border">
                 <a href="/#contact" className="text-accent font-display text-xs uppercase tracking-widest font-bold hover:gap-3 flex items-center gap-2 transition-all">
                   Inquire Now ↗
                 </a>

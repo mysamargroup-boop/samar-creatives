@@ -17,7 +17,7 @@ export function ContactForm() {
         { y: "15%", opacity: 0 },
         {
           y: "-15%",
-          opacity: 0.1,
+          opacity: 0.15,
           ease: "none",
           scrollTrigger: {
             trigger: "#contact",
@@ -32,10 +32,10 @@ export function ContactForm() {
 
   return (
     <section id="contact" className="relative py-20 md:py-28 px-6 text-center overflow-hidden bg-background border-t border-border">
-      {/* HELLO Watermark */}
+      {/* HELLO Green Gradient Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-emerald-500/20 bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>
@@ -43,7 +43,7 @@ export function ContactForm() {
       <div className="relative z-10 flex flex-col items-center max-w-4xl mx-auto">
         <span className="text-[10px] md:text-[11px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 fade-up">Available for Freelance</span>
         
-        <h2 className="font-display text-[clamp(2.5rem,9vw,6.5rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-12 fade-up">
+        <h2 className="font-display text-[clamp(2.5rem,9vw,6.5rem)] font-extrabold leading-[0.9] tracking-tighter uppercase mb-12 fade-up text-left md:text-center">
           Have an<br />
           <em className="font-serif italic text-accent lowercase font-normal opacity-80 block -mt-2">idea?</em>
         </h2>
