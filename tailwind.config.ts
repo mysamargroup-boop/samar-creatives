@@ -10,8 +10,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        body: ['Inter', 'sans-serif'],
-        display: ['Bebas Neue', 'sans-serif'],
+        body: ['Montserrat', 'sans-serif'],
+        display: ['Syne', 'sans-serif'],
         serif: ['Instrument Serif', 'serif'],
         code: ['monospace'],
       },

@@ -43,15 +43,19 @@ export function Comparison() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.from(".benefit-card", {
-        y: 60,
-        opacity: 0,
-        duration: 1,
+      // Ensure initial state is visible if GSAP doesn't trigger immediately
+      gsap.set(".benefit-card", { opacity: 0, y: 40 });
+      
+      gsap.to(".benefit-card", {
+        y: 0,
+        opacity: 1,
+        duration: 0.8,
         stagger: 0.15,
         ease: "power3.out",
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "top 80%",
+          start: "top 75%",
+          toggleActions: "play none none none"
         }
       });
     });
