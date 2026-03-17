@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -20,7 +19,7 @@ export function Hero() {
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-20 pt-32 md:pt-40 overflow-hidden bg-background items-start">
+    <section id="hero" className="relative min-h-[90vh] flex flex-col justify-end px-6 md:px-12 pb-20 pt-32 md:pt-40 overflow-hidden bg-background items-start text-left">
       <div className="bg-noise" />
       <div className="hero-glow" />
 

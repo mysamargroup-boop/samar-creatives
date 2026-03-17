@@ -39,7 +39,8 @@ export function Footer() {
             <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-bold">
               © {new Date().getFullYear()} <span className="text-foreground">Samar</span> — All rights reserved.
             </div>
-            <div className="text-[11px] uppercase tracking-widest font-extrabold bg-gradient-to-r from-accent to-[#ff5f3f] bg-clip-text text-transparent">
+            {/* Gradient Signature */}
+            <div className="text-[11px] uppercase tracking-widest font-extrabold bg-gradient-to-r from-[#ff5f3f] to-accent bg-clip-text text-transparent">
               Designed by Samar
             </div>
           </div>

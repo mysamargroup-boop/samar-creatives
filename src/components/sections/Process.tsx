@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useEffect, useRef } from "react";
@@ -68,7 +67,7 @@ export function Process() {
 
   return (
     <section id="process" className="relative py-24 md:py-48 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      {/* Floating Diagonal Background Text */}
+      {/* Floating Diagonal Background Text - Increased visibility */}
       <div 
         ref={diagonalRef}
         className="absolute top-1/2 left-[-25%] w-[150%] font-display text-[10vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[12deg] origin-left"
@@ -76,7 +75,7 @@ export function Process() {
         STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN • BUILD • LAUNCH
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start">
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-32 items-start text-left">
         <div className="lg:sticky lg:top-32 w-full lg:w-1/3 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block fade-up">How I Work</span>
           <h2 className="font-display text-[clamp(2rem,6vw,4rem)] font-extrabold leading-[1] tracking-tighter uppercase mb-8">

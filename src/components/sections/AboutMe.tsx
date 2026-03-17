@@ -36,7 +36,7 @@ export function AboutMe() {
 
   return (
     <section id="about" className="relative py-24 md:py-40 px-6 md:px-12 bg-background overflow-hidden">
-      {/* Orange Gradient Faded Watermark */}
+      {/* Orange Gradient Faded Watermark - Scaled down for safe fit */}
       <div 
         ref={bgTextRef}
         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[15vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter leading-none z-0 opacity-20 bg-gradient-to-br from-[#ff5f3f] to-transparent bg-clip-text text-transparent"
