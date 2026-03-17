@@ -1,5 +1,7 @@
 "use client";
 
+import { SectionNumber } from "@/components/ui/SectionNumber";
+
 export function StatsRow() {
   const skills = [
     { name: "React / Next", pct: 92 },
@@ -10,8 +12,15 @@ export function StatsRow() {
   ];
 
   return (
-    <section className="px-8 md:px-12 bg-background pb-16">
-      <div className="max-w-7xl mx-auto">
+    <section id="skills" className="relative px-8 md:px-12 bg-background pb-8 overflow-hidden">
+      <SectionNumber id="skills" />
+
+      {/* SKILLS Watermark */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.03] text-foreground whitespace-nowrap">
+        SKILLS
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto">
         <div className="space-y-1">
           {skills.map((skill, i) => (
             <div key={i} className="group py-6 md:py-8 border-b border-border hover:bg-foreground/[0.02] transition-all duration-500 fade-up flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12">

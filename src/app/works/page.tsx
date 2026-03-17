@@ -4,10 +4,19 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: 'Works | SAMAR. Portfolio',
-  description: 'An archive of selected digital projects ranging from AI platforms to premium E-commerce experiences.',
+  title: 'Selected Works',
+  description: 'Explore an archive of selected digital projects ranging from AI platforms to premium E-commerce experiences designed and developed by Samar.',
+  alternates: {
+    canonical: 'https://samar-creative.pages.dev/works'
+  }
 };
 
+/**
+ * ──── HOW TO ADD A NEW PROJECT ────
+ * 1. Save a screenshot to: public/projects/<project-name>.webp (recommended: 1600x1000px)
+ * 2. Add a new entry below following the same format
+ * 3. IMPORTANT: Also update the same list in src/components/sections/HorizontalWorks.tsx
+ */
 const projects = [
   {
     id: "01",
@@ -15,7 +24,7 @@ const projects = [
     category: "AI Platform",
     description: "An intelligent AI chat assistant providing reliable answers and support for regional users.",
     tags: ["React", "GenAI", "Tailwind"],
-    image: "https://picsum.photos/seed/pc-p1/800/600",
+    image: "/projects/uttarmitra.webp",
     link: "https://chat.uttarmitra.in"
   },
   {
@@ -24,7 +33,7 @@ const projects = [
     category: "E-Commerce",
     description: "A premium furniture store offering modern and sustainable interior designs.",
     tags: ["Next.js", "Design", "Commerce"],
-    image: "https://picsum.photos/seed/pc-p2/800/600",
+    image: "/projects/woody.webp",
     link: "https://woody.co.in"
   },
   {
@@ -33,7 +42,7 @@ const projects = [
     category: "B2B Solution",
     description: "A specialized business portal for corporate furniture procurement and management.",
     tags: ["React", "B2B", "Dashboard"],
-    image: "https://picsum.photos/seed/pc-p3/800/600",
+    image: "/projects/business-woody.webp",
     link: "https://business.woody.co.in"
   },
   {
@@ -42,26 +51,17 @@ const projects = [
     category: "Studio Portfolio",
     description: "Visual storytelling showcase for a professional photography studio capturing moments.",
     tags: ["Next.js", "Motion", "Gallery"],
-    image: "https://picsum.photos/seed/pc-p4/800/600",
+    image: "/projects/photography.webp",
     link: "https://ashok-studio-photography.vercel.app/"
   },
   {
     id: "05",
-    title: "Merchant Web",
-    category: "Web App",
-    description: "Custom digital solutions and web development for modern businesses and merchants.",
-    tags: ["TypeScript", "Next.js", "Vercel"],
-    image: "https://picsum.photos/seed/pc-p5/800/600",
-    link: "https://merchant-web-sigma.vercel.app/"
-  },
-  {
-    id: "06",
-    title: "Samar Makeup",
-    category: "Beauty Services",
-    description: "Professional makeup artist portfolio and streamlined booking platform.",
-    tags: ["React", "Styling", "Booking"],
-    image: "https://picsum.photos/seed/pc-p6/800/600",
-    link: "https://samar-makeup.vercel.app/"
+    title: "Nemaone",
+    category: "E-Commerce",
+    description: "A premium e-commerce platform built for scale and conversion.",
+    tags: ["Next.js", "Commerce"],
+    image: "/projects/nemaone.webp",
+    link: "https://nemaone.com"
   }
 ];
 
@@ -85,15 +85,17 @@ export default function WorksArchivePage() {
               rel="noopener noreferrer"
               className="group relative flex flex-col items-start"
             >
-              <div className="aspect-[4/3] w-full bg-foreground/5 rounded-2xl overflow-hidden mb-6 relative">
-                <Image 
+              <div className="aspect-[4/3] w-full border border-border rounded-2xl overflow-hidden mb-6 relative" style={{ containerType: 'size' }}>
+                <img 
                   src={project.image} 
                   alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="w-full h-auto object-cover"
+                  style={{
+                    animation: 'scrollImage 8s ease-in-out infinite alternate',
+                  }}
                 />
-                <div className="absolute inset-0 bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm">
-                   <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl">
+                <div className="absolute inset-0 bg-background/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-sm pointer-events-none">
+                   <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center scale-0 group-hover:scale-100 transition-transform duration-500 shadow-xl pointer-events-none">
                       <span className="text-accent-foreground font-bold text-xl">↗</span>
                    </div>
                 </div>

@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionNumber } from "@/components/ui/SectionNumber";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -36,7 +37,8 @@ export function AboutMe() {
   }, []);
 
   return (
-    <section id="about" className="relative py-16 md:py-24 px-6 md:px-12 bg-background overflow-hidden">
+    <section id="about" className="relative py-12 md:py-16 px-6 md:px-12 bg-background overflow-hidden">
+      <SectionNumber id="about" />
       {/* SAMAR Orange Gradient Watermark */}
       <div 
         ref={bgTextRef}

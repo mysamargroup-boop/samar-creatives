@@ -1,4 +1,3 @@
-
 "use client";
 
 import React, { useState, useEffect } from "react";
@@ -8,16 +7,25 @@ export function ConnectPopup() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    // Show popup after 3 seconds for better visibility
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 3000);
+    // Check if user has already seen the popup
+    const hasSeenPopup = localStorage.getItem("samar_popup_shown");
+    if (hasSeenPopup) return;
 
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+      if (scrollPercent >= 50) {
+        setIsVisible(true);
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleDismiss = () => {
     setIsVisible(false);
+    localStorage.setItem("samar_popup_shown", "true");
   };
 
   if (!isVisible) return null;
@@ -49,7 +57,7 @@ export function ConnectPopup() {
           </div>
 
           <a 
-            href="https://instagram.com/shubham__nema" 
+            href="https://www.instagram.com/samar_creative_studio/" 
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 text-[10px] uppercase tracking-[0.2em] font-bold bg-accent text-accent-foreground px-6 py-3 rounded-full hover:scale-105 active:scale-95 transition-all w-full justify-center"

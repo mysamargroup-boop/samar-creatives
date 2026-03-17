@@ -6,6 +6,7 @@ import Link from "next/link";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Magnetic } from "@/components/ui/Magnetic";
+import { SectionNumber } from "@/components/ui/SectionNumber";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -18,7 +19,7 @@ export function ContactForm() {
         { yPercent: 40, opacity: 0 },
         {
           yPercent: -40,
-          opacity: 0.15,
+          opacity: 0.22,
           ease: "none",
           scrollTrigger: {
             trigger: "#contact",
@@ -32,7 +33,8 @@ export function ContactForm() {
   }, []);
 
   return (
-    <section id="contact" className="relative py-20 md:py-28 px-6 text-center overflow-hidden bg-background border-t border-border">
+    <section id="contact" className="relative py-14 md:py-20 px-6 text-center overflow-hidden bg-background border-t border-border">
+      <SectionNumber id="contact" />
       {/* HELLO Green Gradient Watermark */}
       <div 
         ref={watermarkRef}
@@ -57,7 +59,7 @@ export function ContactForm() {
               rel="noopener noreferrer"
               className="group relative w-full md:w-auto inline-flex items-center justify-center gap-3 px-8 md:px-14 py-4 md:py-6 bg-foreground text-background font-display text-sm md:text-lg font-extrabold tracking-tight rounded-full overflow-hidden transition-all hover:scale-105 active:scale-95 shadow-2xl"
             >
-              <span className="relative z-10 uppercase">Send me a message ↗</span>
+              <span className="relative z-10 uppercase whitespace-nowrap">Send me a message ↗</span>
             </a>
           </Magnetic>
 

@@ -5,6 +5,7 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { Instagram, Globe, Search, Layout, Database, Zap } from "lucide-react";
+import { SectionNumber } from "@/components/ui/SectionNumber";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -80,7 +81,8 @@ export function Comparison() {
   }, []);
 
   return (
-    <section ref={containerRef} id="advantages" className="relative py-20 md:py-28 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+    <section ref={containerRef} id="advantages" className="relative py-14 md:py-20 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+      <SectionNumber id="advantages" />
       {/* WEB Watermark */}
       <div 
         ref={watermarkRef}
@@ -100,7 +102,7 @@ export function Comparison() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 pr-4 md:pr-0">
           {benefits.map((benefit, i) => (
             <div 
               key={i} 

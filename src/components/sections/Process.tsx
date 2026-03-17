@@ -3,11 +3,12 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionNumber } from "@/components/ui/SectionNumber";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export function Process() {
-  const diagonalRef = useRef<HTMLDivElement>(null);
+  const marqueeRef = useRef<HTMLDivElement>(null);
 
   const steps = [
     {
@@ -33,9 +34,10 @@ export function Process() {
   ];
 
   useEffect(() => {
-    if (diagonalRef.current) {
-      gsap.to(diagonalRef.current, {
-        x: "-5%",
+    // Marquee-style watermark that moves with scroll
+    if (marqueeRef.current) {
+      gsap.to(marqueeRef.current, {
+        xPercent: -50,
         ease: "none",
         scrollTrigger: {
           trigger: "#process",
@@ -44,24 +46,43 @@ export function Process() {
           scrub: 1,
         }
       });
-
-      gsap.to(diagonalRef.current, {
-        y: "+=20",
-        duration: 5,
-        ease: "sine.inOut",
-        repeat: -1,
-        yoyo: true,
-      });
     }
   }, []);
 
   return (
-    <section id="process" className="relative py-16 md:py-24 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
-      <div 
-        ref={diagonalRef}
-        className="absolute top-1/2 left-[-20%] w-[140%] font-display text-[10vw] font-extrabold text-foreground/[0.04] select-none pointer-events-none whitespace-nowrap uppercase tracking-[0.2em] z-0 -rotate-[10deg] origin-left"
-      >
-        STRATEGY • DESIGN • BUILD • LAUNCH • STRATEGY • DESIGN • BUILD • LAUNCH
+    <section id="process" className="relative py-12 md:py-16 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+      <SectionNumber id="process" />
+
+      {/* Diagonal Scroll-Linked Watermark */}
+      <div className="absolute top-1/2 left-[-10%] w-[200%] -translate-y-1/2 -rotate-[8deg] z-0 pointer-events-none select-none overflow-hidden">
+        <div 
+          ref={marqueeRef}
+          className="flex whitespace-nowrap font-display text-[8vw] font-extrabold text-foreground/[0.04] uppercase tracking-[0.15em]"
+        >
+          <span className="mx-8">Strategy</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Design</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Build</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Launch</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Strategy</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Design</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Build</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Launch</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Strategy</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Design</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Build</span>
+          <span className="mx-8">•</span>
+          <span className="mx-8">Launch</span>
+        </div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col lg:flex-row gap-16 lg:gap-24 items-start text-left">

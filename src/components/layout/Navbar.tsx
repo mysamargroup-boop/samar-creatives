@@ -56,16 +56,8 @@ export function Navbar() {
         </li>
         <li>
           <Magnetic intensity={0.2}>
-            <Link href="/#about" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
+            <Link href="/about" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
               About
-              <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
-            </Link>
-          </Magnetic>
-        </li>
-        <li>
-          <Magnetic intensity={0.2}>
-            <Link href="/#process" className="text-[11px] uppercase tracking-[0.2em] font-bold text-foreground/40 hover:text-foreground transition-colors relative group py-2">
-              Process
               <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-accent transition-all duration-300 group-hover:w-full" />
             </Link>
           </Magnetic>

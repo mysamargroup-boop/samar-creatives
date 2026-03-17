@@ -2,6 +2,10 @@
 
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionNumber } from "@/components/ui/SectionNumber";
+
+gsap.registerPlugin(ScrollTrigger);
 
 export function Hero() {
   const watermarkRef = useRef<HTMLDivElement>(null);
@@ -21,15 +25,18 @@ export function Hero() {
     <section id="hero" className="relative min-h-[85vh] flex flex-col justify-end px-6 md:px-12 pb-16 pt-24 md:pt-32 overflow-hidden bg-background items-start text-left">
       <div className="bg-noise" />
       <div className="hero-glow" />
+      <SectionNumber id="hero" />
 
-      <div className="absolute top-[25%] left-0 w-full overflow-hidden z-0 pointer-events-none select-none">
+      <div className="absolute top-[20%] left-0 w-[200%] z-0 pointer-events-none select-none overflow-visible">
         <div 
           ref={watermarkRef}
-          className="flex whitespace-nowrap font-display text-[20vw] font-extrabold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent opacity-[0.07] uppercase tracking-tighter leading-none"
+          className="flex whitespace-nowrap font-display text-[16vw] font-extrabold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent opacity-10 uppercase tracking-tight py-4"
         >
-          <span className="mr-[5vw]">RAGHAV</span>
-          <span className="mr-[5vw]">RAGHAV</span>
-          <span className="mr-[5vw]">RAGHAV</span>
+          <span className="mr-[6vw]">RAGHAV</span>
+          <span className="mr-[6vw]">RAGHAV</span>
+          <span className="mr-[6vw]">RAGHAV</span>
+          <span className="mr-[6vw]">RAGHAV</span>
+          <span className="mr-[6vw]">RAGHAV</span>
         </div>
       </div>
 

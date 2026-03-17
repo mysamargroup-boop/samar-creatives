@@ -124,3 +124,13 @@ html.lenis {
 #scroll-progress {
   @apply fixed top-0 left-0 w-0 h-[2px] bg-accent z-[9997] origin-left;
 }
+
+/* Autoplay scroll for tall project screenshots */
+@keyframes scrollImage {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(calc(-100% + 100cqh));
+  }
+}

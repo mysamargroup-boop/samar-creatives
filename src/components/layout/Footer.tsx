@@ -1,5 +1,5 @@
-
 import Link from "next/link";
+import { Magnetic } from "@/components/ui/Magnetic";
 
 export function Footer() {
   return (
@@ -19,40 +19,81 @@ export function Footer() {
             <div className="space-y-4 text-left">
               <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/30 font-bold block">Social</span>
               <ul className="space-y-2 Montserrat">
-                <li><a href="https://instagram.com/shubham__nema" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">Instagram</a></li>
-                <li><a href="#" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">GitHub</a></li>
-                <li><a href="#" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">Twitter</a></li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <a href="https://www.instagram.com/samar_creative_studio/" target="_blank" rel="noopener noreferrer" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">Instagram</a>
+                  </Magnetic>
+                </li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <a href="#" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">GitHub</a>
+                  </Magnetic>
+                </li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <a href="#" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">Twitter</a>
+                  </Magnetic>
+                </li>
               </ul>
             </div>
             <div className="space-y-4 text-left">
               <span className="text-[10px] uppercase tracking-[0.2em] text-foreground/30 font-bold block">Explore</span>
               <ul className="space-y-2 Montserrat">
-                <li><Link href="/works" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">Works</Link></li>
-                <li><Link href="/#about" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">About</Link></li>
-                <li><Link href="/#process" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold">Process</Link></li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <Link href="/works" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">Works</Link>
+                  </Magnetic>
+                </li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <Link href="/about" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">About</Link>
+                  </Magnetic>
+                </li>
+                <li>
+                  <Magnetic intensity={0.2}>
+                    <Link href="/#process" className="text-[11px] uppercase tracking-widest hover:text-accent transition-colors font-bold inline-block py-1">Process</Link>
+                  </Magnetic>
+                </li>
               </ul>
             </div>
           </div>
         </div>
 
-        <div className="pt-12 border-t border-border flex flex-col md:flex-row justify-between items-start md:items-center gap-6 text-left">
-          <div className="flex flex-col items-start gap-1">
+        {/* Bottom Row: single flex line on desktop, stacked on mobile */}
+        <div className="pt-12 border-t border-border relative">
+          {/* Mobile: stacked vertically */}
+          <div className="flex flex-col items-center gap-4 md:hidden text-center">
+            <div className="text-[14px] tracking-widest font-bold bg-gradient-to-r from-[#ff5f3f] to-accent bg-clip-text text-transparent" style={{ fontFamily: "'Dancing Script', cursive" }}>
+              Designed by Samar
+            </div>
             <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-bold Montserrat">
               © {new Date().getFullYear()} <span className="text-foreground">Samar</span> — All rights reserved.
             </div>
-            {/* Gradient Signature */}
-            <div className="text-[11px] uppercase tracking-widest font-extrabold bg-gradient-to-r from-[#ff5f3f] to-accent bg-clip-text text-transparent Montserrat">
-              Designed by Samar
+            <div className="flex items-center gap-4 text-[10px] uppercase tracking-widest text-foreground/30 font-bold Montserrat">
+              <span className="flex items-center gap-2">📍 Sagar, MP</span>
+              <div className="flex items-center gap-2 text-accent">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                Available
+              </div>
             </div>
           </div>
-          
-          <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6 text-[10px] uppercase tracking-widest text-foreground/30 font-bold items-start Montserrat">
-            <span className="flex items-center gap-2">
-              📍 Sagar, Madhya Pradesh, IN
-            </span>
-            <div className="flex items-center gap-2 text-accent">
-              <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-              Available
+
+          {/* Desktop: single horizontal row */}
+          <div className="hidden md:flex items-center justify-between">
+            <div className="text-[10px] uppercase tracking-[0.3em] text-foreground/30 font-bold Montserrat">
+              © {new Date().getFullYear()} <span className="text-foreground">Samar</span> — All rights reserved.
+            </div>
+
+            <div className="absolute left-1/2 -translate-x-1/2 text-[14px] tracking-widest font-bold bg-gradient-to-r from-[#ff5f3f] to-accent bg-clip-text text-transparent" style={{ fontFamily: "'Dancing Script', cursive" }}>
+              Designed by Samar
+            </div>
+
+            <div className="flex items-center gap-6 text-[10px] uppercase tracking-widest text-foreground/30 font-bold Montserrat">
+              <span className="flex items-center gap-2">📍 Sagar, Madhya Pradesh, IN</span>
+              <div className="flex items-center gap-2 text-accent">
+                <div className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
+                Available
+              </div>
             </div>
           </div>
         </div>

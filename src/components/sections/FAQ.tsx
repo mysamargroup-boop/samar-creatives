@@ -3,6 +3,7 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SectionNumber } from "@/components/ui/SectionNumber";
 import {
   Accordion,
   AccordionContent,
@@ -59,7 +60,8 @@ export function FAQ() {
   }, []);
 
   return (
-    <section id="faq" ref={containerRef} className="relative py-20 md:py-32 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+    <section id="faq" ref={containerRef} className="relative py-14 md:py-20 px-6 md:px-12 bg-background border-t border-border overflow-hidden">
+      <SectionNumber id="faq" />
       {/* ASK Watermark */}
       <div 
         ref={watermarkRef}
