@@ -1,30 +1,31 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { gsap } from "gsap";
 import { Instagram, X, ArrowRight } from "lucide-react";
 
 export function ConnectPopup() {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasShown, setHasShown] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      if (hasShown) return;
+    // Check if shown in this session
+    const hasBeenShown = sessionStorage.getItem("connect_popup_shown");
+    if (hasBeenShown) return;
 
+    const handleScroll = () => {
       const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
       const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrolled = (winScroll / height) * 100;
 
       if (scrolled > 50) {
         setIsVisible(true);
-        setHasShown(true);
+        sessionStorage.setItem("connect_popup_shown", "true");
+        window.removeEventListener("scroll", handleScroll);
       }
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [hasShown]);
+  }, []);
 
   const handleDismiss = () => {
     setIsVisible(false);
@@ -50,10 +51,10 @@ export function ConnectPopup() {
           </div>
           
           <div className="space-y-2">
-            <h4 className="font-display text-2xl font-extrabold uppercase tracking-tight leading-none">
+            <h4 className="font-display text-2xl font-extrabold uppercase tracking-tight leading-none text-left">
               Let&apos;s <br />Connect
             </h4>
-            <p className="text-[11px] font-medium opacity-60 leading-relaxed">
+            <p className="text-[11px] font-medium opacity-60 leading-relaxed text-left">
               Love the craft? Follow my journey and daily updates on Instagram.
             </p>
           </div>

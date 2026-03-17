@@ -81,11 +81,11 @@ export function Comparison() {
                 {benefit.icon}
               </div>
               
-              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-8">
+              <h3 className="font-display text-2xl font-extrabold uppercase tracking-tight mb-8 text-left">
                 {benefit.title}
               </h3>
 
-              <div className="space-y-6">
+              <div className="space-y-6 text-left">
                 <div className="space-y-2">
                   <span className="text-[9px] uppercase tracking-widest text-foreground/30 font-bold flex items-center gap-2">
                     <Instagram className="w-3 h-3" /> Instagram
