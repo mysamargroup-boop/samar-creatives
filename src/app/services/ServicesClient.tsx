@@ -133,7 +133,7 @@ export function ServicesClient() {
 
               <ul className="space-y-4 flex-grow w-full">
                 {service.features.map((feature, idx) => (
-                  <li key={idx} className="flex items-start gap-4 text-foreground/60 group-hover:text-foreground transition-colors duration-300">
+                  <li key={idx} className="flex items-start gap-4 text-foreground/60 transition-colors duration-300 hover:text-foreground">
                     <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span className="text-xs lg:text-sm font-medium Montserrat break-words">{feature}</span>
                   </li>
