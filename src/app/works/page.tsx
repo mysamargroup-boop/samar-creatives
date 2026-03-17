@@ -1,5 +1,4 @@
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
+
 import { ContactForm } from "@/components/sections/ContactForm";
 import Image from "next/image";
 import type { Metadata } from "next";
@@ -69,7 +68,6 @@ const projects = [
 export default function WorksArchivePage() {
   return (
     <div className="min-h-screen bg-background text-foreground flex flex-col">
-      <Navbar />
       <main className="flex-grow pt-48 pb-24 px-6 md:px-12">
         <div className="max-w-7xl mx-auto mb-24 text-left">
           <span className="text-[10px] uppercase tracking-[0.4em] text-foreground/40 font-bold mb-6 block">Archive</span>
@@ -127,7 +125,6 @@ export default function WorksArchivePage() {
         </div>
       </main>
       <ContactForm />
-      <Footer />
     </div>
   );
 }

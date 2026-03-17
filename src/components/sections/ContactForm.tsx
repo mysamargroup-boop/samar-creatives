@@ -35,7 +35,7 @@ export function ContactForm() {
       {/* HELLO Green Gradient Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-accent to-emerald-500/20 bg-clip-text text-transparent z-0"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[18vw] font-extrabold select-none pointer-events-none whitespace-nowrap uppercase tracking-tighter bg-gradient-to-b from-emerald-500 to-teal-500/10 bg-clip-text text-transparent z-0"
       >
         HELLO
       </div>

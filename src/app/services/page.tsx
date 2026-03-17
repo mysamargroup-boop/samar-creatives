@@ -1,6 +1,4 @@
 
-import { Navbar } from "@/components/layout/Navbar";
-import { Footer } from "@/components/layout/Footer";
 import { ContactForm } from "@/components/sections/ContactForm";
 import { CheckCircle2, Globe, Layout, ShoppingCart, Search, Facebook, ShoppingBag } from "lucide-react";
 import type { Metadata } from "next";
@@ -63,8 +61,6 @@ export default function ServicesPage() {
           <Layout className="w-72 h-72 rotate-12" />
         </div>
       </div>
-
-      <Navbar />
       
       <main className="flex-grow pt-48 pb-24 px-6 md:px-12 relative z-10">
         <div className="max-w-7xl mx-auto mb-20 text-left">
@@ -80,7 +76,6 @@ export default function ServicesPage() {
               key={i} 
               className="relative overflow-hidden bg-foreground/[0.02] border border-border backdrop-blur-sm rounded-[2rem] p-10 flex flex-col transition-all duration-500 hover:-translate-y-4 hover:bg-foreground/[0.04] group"
             >
-              {/* Illustration Placeholder area */}
               <div className="aspect-[16/10] w-full bg-foreground/5 rounded-2xl mb-10 flex items-center justify-center relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-foreground/5 to-transparent" />
                 {service.icon}
@@ -110,7 +105,6 @@ export default function ServicesPage() {
       </main>
 
       <ContactForm />
-      <Footer />
     </div>
   );
 }
