@@ -47,44 +47,48 @@ const services = [
 
 export function ServicesClient() {
   useEffect(() => {
-    // 3D Staggered entrance for the Services Title
-    gsap.from('.services-title-line span', { 
-      yPercent: 120, 
-      rotationX: -90,
-      transformOrigin: "50% 50% -50px",
-      duration: 1.2, 
-      stagger: 0.1,
-      opacity: 0,
-      ease: "expo.out",
-      delay: 0.2
+    let ctx = gsap.context(() => {
+      // 3D Staggered entrance for the Services Title
+      gsap.from('.services-title-line span', { 
+        yPercent: 120, 
+        rotationX: -90,
+        transformOrigin: "50% 50% -50px",
+        duration: 1.2, 
+        stagger: 0.1,
+        opacity: 0,
+        ease: "expo.out",
+        delay: 0.2
+      });
+
+      // Parallax background icons
+      gsap.to('.service-bg-icon', {
+        yPercent: 30,
+        rotation: "+=15",
+        ease: "none",
+        scrollTrigger: {
+          trigger: ".services-hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: 1
+        }
+      });
+
+      // Reveal Service cards
+      gsap.from('.service-card', {
+        y: 80,
+        opacity: 0,
+        duration: 1,
+        stagger: 0.15,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".services-grid",
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      });
     });
 
-    // Parallax background icons
-    gsap.to('.service-bg-icon', {
-      yPercent: 30,
-      rotation: "+=15",
-      ease: "none",
-      scrollTrigger: {
-        trigger: ".services-hero",
-        start: "top top",
-        end: "bottom top",
-        scrub: 1
-      }
-    });
-
-    // Reveal Service cards
-    gsap.from('.service-card', {
-      y: 80,
-      opacity: 0,
-      duration: 1,
-      stagger: 0.15,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: ".services-grid",
-        start: "top 80%",
-        toggleActions: "play none none none"
-      }
-    });
+    return () => ctx.revert();
   }, []);
 
   return (

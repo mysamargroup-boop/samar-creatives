@@ -30,7 +30,7 @@ export function Hero() {
       <div className="absolute top-[20%] left-0 w-[200%] z-0 pointer-events-none select-none overflow-visible">
         <div 
           ref={watermarkRef}
-          className="flex whitespace-nowrap font-display text-[16vw] font-extrabold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent opacity-10 uppercase tracking-tight py-4"
+          className="flex whitespace-nowrap font-display text-[16vw] font-extrabold bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent opacity-25 uppercase tracking-tight py-4"
         >
           <span className="mr-[6vw]">RAGHAV</span>
           <span className="mr-[6vw]">RAGHAV</span>

@@ -67,10 +67,10 @@ export default function RootLayout({
             {children}
           </main>
           <Footer />
-          <MobileSidebar />
           <ConnectPopup />
           <Toaster />
         </SmoothScroll>
+        <MobileSidebar />
       </body>
     </html>
   );

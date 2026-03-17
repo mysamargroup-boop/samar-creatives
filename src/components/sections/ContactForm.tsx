@@ -19,7 +19,7 @@ export function ContactForm() {
         { yPercent: 40, opacity: 0 },
         {
           yPercent: -40,
-          opacity: 0.22,
+          opacity: 0.35,
           ease: "none",
           scrollTrigger: {
             trigger: "#contact",

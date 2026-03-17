@@ -44,7 +44,7 @@ export function MobileSidebar() {
       <Magnetic intensity={0.4}>
         <button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 left-6 z-[300] md:hidden w-14 h-14 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-2xl shadow-accent/30 hover:scale-110 active:scale-95 transition-transform"
+          className="fixed bottom-6 right-6 z-[300] md:hidden w-14 h-14 bg-accent text-accent-foreground rounded-full flex items-center justify-center shadow-2xl shadow-accent/30 hover:scale-110 active:scale-95 transition-transform"
           style={{ borderRadius: "50% 50% 50% 20%" }}
           aria-label="Open navigation"
         >

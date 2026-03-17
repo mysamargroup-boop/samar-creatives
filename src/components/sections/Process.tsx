@@ -57,7 +57,7 @@ export function Process() {
       <div className="absolute top-1/2 left-[-10%] w-[200%] -translate-y-1/2 -rotate-[8deg] z-0 pointer-events-none select-none overflow-hidden">
         <div 
           ref={marqueeRef}
-          className="flex whitespace-nowrap font-display text-[8vw] font-extrabold text-foreground/[0.04] uppercase tracking-[0.15em]"
+          className="flex whitespace-nowrap font-display text-[8vw] font-extrabold text-foreground/[0.12] uppercase tracking-[0.15em]"
         >
           <span className="mx-8">Strategy</span>
           <span className="mx-8">•</span>

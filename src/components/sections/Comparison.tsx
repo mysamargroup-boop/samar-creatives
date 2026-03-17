@@ -86,7 +86,7 @@ export function Comparison() {
       {/* WEB Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.1] bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.2] bg-gradient-to-b from-accent to-transparent bg-clip-text text-transparent"
       >
         WEB
       </div>

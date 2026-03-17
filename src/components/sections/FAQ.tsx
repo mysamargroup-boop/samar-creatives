@@ -46,7 +46,7 @@ export function FAQ() {
         { xPercent: 15, opacity: 0 },
         {
           xPercent: -15,
-          opacity: 0.1,
+          opacity: 0.25,
           ease: "none",
           scrollTrigger: {
             trigger: "#faq",
@@ -65,7 +65,7 @@ export function FAQ() {
       {/* ASK Watermark */}
       <div 
         ref={watermarkRef}
-        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.05] bg-gradient-to-b from-foreground to-transparent bg-clip-text text-transparent"
+        className="absolute top-1/2 left-0 w-full text-center -translate-y-1/2 font-display text-[22vw] font-extrabold select-none pointer-events-none uppercase tracking-tighter leading-none z-0 opacity-[0.15] bg-gradient-to-b from-foreground to-transparent bg-clip-text text-transparent"
       >
         ASK
       </div>
